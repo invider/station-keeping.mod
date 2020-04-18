@@ -1,0 +1,60 @@
+{
+  "name": "Station BluePrint",
+  "ogmoVersion": "3.3.0",
+  "levelPaths": ["."],
+  "backgroundColor": "#282c34ff",
+  "gridColor": "#3c4049cc",
+  "anglesRadians": true,
+  "directoryDepth": 5,
+  "layerGridDefaultSize": {"x": 8, "y": 8},
+  "levelDefaultSize": {"x": 320, "y": 240},
+  "levelMinSize": {"x": 128, "y": 128},
+  "levelMaxSize": {"x": 4096, "y": 4096},
+  "levelValues": [],
+  "defaultExportMode": ".json",
+  "compactExport": false,
+  "externalScript": "",
+  "playCommand": "",
+  "entityTags": [],
+  "layers": [
+    {
+      "definition": "tile",
+      "name": "space",
+      "gridSize": {"x": 8, "y": 8},
+      "exportID": "24406577",
+      "exportMode": 0,
+      "arrayMode": 0,
+      "defaultTileset": "panels"
+    },
+    {
+      "definition": "tile",
+      "name": "shell",
+      "gridSize": {"x": 8, "y": 8},
+      "exportID": "24406359",
+      "exportMode": 0,
+      "arrayMode": 0,
+      "defaultTileset": ""
+    },
+    {
+      "definition": "tile",
+      "name": "decor",
+      "gridSize": {"x": 8, "y": 8},
+      "exportID": "24402494",
+      "exportMode": 0,
+      "arrayMode": 0,
+      "defaultTileset": ""
+    },
+    {
+      "definition": "entity",
+      "name": "props",
+      "gridSize": {"x": 8, "y": 8},
+      "exportID": "24404474",
+      "requiredTags": [],
+      "excludedTags": []
+    }
+  ],
+  "entities": [],
+  "tilesets": [
+    {"label": "panels", "path": "../../res/tileset/panels.map8x8.png", "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAACACAYAAAC7gW9qAAAAAXNSR0IArs4c6QAAAnZJREFUeJzt1kFIk2Ecx/HfROlSBsJYdOkgYRI4D0XELiKJoaGBnQMtytOE8FLhKdgOdbIOEkjQoQgqyJgUQbfRGEVORjptjA5SYyBSJ0F4O8y97AHd3tftdWHfz+V93+d5n3fP///+3+eZTzUaGX9gOb23w9/m6tmZwroGLoRcz8mNZk+fXqbD36ZE4oWrMf5AQFJI2dTSjv2p1IKCwW7juqS8vRLXCSi98Vczkz6nY8qD//jhvaNxvX39jiqrPdi547lTnlfAXoJ3o7w6aqkAS5IezW8YnYe+NNnniyfnJUldqwOSpIv3bliS9G7tsaMf8iJ4qc4V8HXtqNE5O+WzJ30pGrUk6eFUqxGIm0XQC3WpgPTbsCTpbjpvdA5Hf9nB5VZuG21XFyZ0Lh7XxN7m7QmnQZczKmDzZ2LXG48fGTbuyeVyUsjbLaqk/M266XPCSMDGj7jRmXhz3y73waGwUeqTyaRPyaRGxs96+glcu3K+4toxOBS2gsFutQc7lU0tGcfXT58rNjddcbyRgJmejNF5PTNqB5df+WP0nTk16irw3r5+y6uFsBYVt8HPy0+qTvhET+VFMFNYlz8QUCGf/yeT0CxJzwqni1db24vI7+IhcueyJUnHWr4XG7Y3ibFbEVdBbB3ukl+LdhJqnXQ97dtf4VIS3I7xWrMkRcZu+mZffrLUKrVYxa0wu7qiTUnL39JKSSrki+21lPB+BORWU/VbDjb7E6i23RxU+7YGeCU2N+2Lze19/H//CZCARk+g0UhAoyfQaCSg0RMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADYzV+LpMFJTDILagAAAABJRU5ErkJggg==", "tileWidth": 8, "tileHeight": 8, "tileSeparationX": 0, "tileSeparationY": 0}
+  ]
+}

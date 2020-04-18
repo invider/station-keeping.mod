@@ -1,0 +1,12 @@
+#!/bin/sh
+
+rm ../lvl/*
+
+cd tilemaps
+cp *.json ../../lvl/
+
+cd ../../lvl/
+for f in *; do
+    f2=`echo $f | sed 's/json/ogmo.json/'`
+    mv $f $f2
+done
