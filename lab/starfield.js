@@ -49,7 +49,7 @@ module.exports =  {
         this.stars.push(star)
     },
 
-    spawn: function() {
+    init: function() {
         for(let i = 0; i < 180*60; i++) {
             this.evo(0.015)
         }
@@ -76,8 +76,7 @@ module.exports =  {
 
     draw: function() {
         // clear the screen
-        ctx.fillStyle = "#250535"
-        ctx.fillRect(0, 0, canvas.width, canvas.height)
+        background(env.style.background)
 
         // draw stars
         this.stars.forEach( star => {
