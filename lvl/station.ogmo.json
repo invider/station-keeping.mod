@@ -65,7 +65,7 @@
           "y": 48,
           "originX": 16,
           "originY": 16,
-          "values": {"type": "free", "subtype": ""}
+          "values": {"type": "free", "subtype": "", "fill": 0}
         },
         {
           "name": "Locker",
@@ -75,7 +75,7 @@
           "y": 48,
           "originX": 16,
           "originY": 16,
-          "values": {"type": "free", "subtype": ""}
+          "values": {"type": "free", "subtype": "", "fill": 0}
         },
         {
           "name": "Locker",
@@ -85,7 +85,7 @@
           "y": 216,
           "originX": 16,
           "originY": 16,
-          "values": {"type": "control", "subtype": "fuel"}
+          "values": {"type": "control", "subtype": "fuel", "fill": 5}
         },
         {
           "name": "Locker",
@@ -95,17 +95,17 @@
           "y": 224,
           "originX": 16,
           "originY": 16,
-          "values": {"type": "storage", "subtype": "life"}
+          "values": {"type": "storage", "subtype": "life", "fill": 6}
         },
         {
           "name": "Locker",
           "id": 6,
           "_eid": "30742908",
-          "x": 136,
-          "y": 120,
+          "x": 144,
+          "y": 128,
           "originX": 16,
           "originY": 16,
-          "values": {"type": "free", "subtype": ""}
+          "values": {"type": "free", "subtype": "fuel", "fill": 5}
         },
         {
           "name": "Locker",
@@ -115,7 +115,7 @@
           "y": 224,
           "originX": 16,
           "originY": 16,
-          "values": {"type": "storage", "subtype": "fuel"}
+          "values": {"type": "storage", "subtype": "fuel", "fill": 2}
         },
         {
           "name": "Locker",
@@ -125,7 +125,7 @@
           "y": 216,
           "originX": 16,
           "originY": 16,
-          "values": {"type": "control", "subtype": "life"}
+          "values": {"type": "control", "subtype": "life", "fill": 5}
         },
         {
           "name": "Locker",
@@ -135,7 +135,7 @@
           "y": 248,
           "originX": 16,
           "originY": 16,
-          "values": {"type": "control", "subtype": "energy"}
+          "values": {"type": "control", "subtype": "energy", "fill": 5}
         },
         {
           "name": "Locker",
@@ -145,7 +145,17 @@
           "y": 248,
           "originX": 16,
           "originY": 16,
-          "values": {"type": "storage", "subtype": "energy"}
+          "values": {"type": "storage", "subtype": "energy", "fill": 1}
+        },
+        {
+          "name": "Locker",
+          "id": 11,
+          "_eid": "30742908",
+          "x": 48,
+          "y": 128,
+          "originX": 16,
+          "originY": 16,
+          "values": {"type": "free", "subtype": "life", "fill": 5}
         }
       ]
     }

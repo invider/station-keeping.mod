@@ -7,6 +7,7 @@ const df = {
     y: 0,
     w: 16,
     h: 32,
+    capacity: 6,
 }
 
 class Locker extends dna.FixedMesh {
@@ -18,9 +19,32 @@ class Locker extends dna.FixedMesh {
         augment(this, st)
     }
 
+    populate(type, qty) {
+        let i = 0
+        while(i < this.capacity && qty > 0) {
+            if (!this.items[i]) {
+                this.items[i] = { type: type }
+                qty--
+            }
+            i++
+        }
+    }
+
     install() {
-        if (this.type && this.type !== 'free') {
+        if (!this.type) return
+
+        if (this.type === 'control' || this.type === 'storage') {
             lab.station[this.type][this.subtype] = this
+            if (this.fill) {
+                if (this.type === 'control') {
+                    this.populate('chip', this.fill)
+                } else {
+                    this.populate(this.subtype, this.fill)
+                }
+            }
+
+        } else if (this.type === 'free' && this.subtype && this.fill) {
+            this.populate(this.subtype, this.fill)
         }
     }
 

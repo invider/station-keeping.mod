@@ -90,7 +90,8 @@
       "tags": [],
       "values": [
         {"name": "type", "definition": "String", "defaults": "free", "maxLength": 0, "trimWhitespace": true},
-        {"name": "subtype", "definition": "String", "defaults": "", "maxLength": 0, "trimWhitespace": true}
+        {"name": "subtype", "definition": "String", "defaults": "", "maxLength": 0, "trimWhitespace": true},
+        {"name": "fill", "definition": "Integer", "defaults": 0, "bounded": false, "min": 0, "max": 100}
       ],
       "texture": "../../res/pod/chipX.png",
       "textureImage": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAJdJREFUOI1jYICCQ/uT/5NCwwATA4WAEcZYuOHIf3wK0YEi/3wGBgYGBhaYk+5/ZGB4cu0qUZrPnb/KsHb1XEYMFzy5dpVhyeIJcIUxsQUofJjYufNXGfKzvkK8gHBBIokumETYBdhcQnsXEGsAzAUoscDAwEBUIDIwMDDYOeKIBaq6ABugrQvOnSfOAGQXoAByciTFuREA/KSkn4MfXJYAAAAASUVORK5CYII="
