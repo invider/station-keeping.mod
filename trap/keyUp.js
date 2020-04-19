@@ -2,17 +2,15 @@
 function handleControl(e) {
     switch(e.code) {
         case 'Minus':
-            lab.world.stopZoom()
+            lab.cam.zoomStop()
             break
         case 'Equal':
-            lab.world.stopZoom()
+            lab.cam.zoomStop()
             break
     }
 }
 
 function keyUp(e) {
-
-
     const action = env.bind.keyMap[e.code]
     if (!e.metaKey && !e.altKey && !e.ctrlKey) {
 

@@ -4,4 +4,6 @@ const tune = {
     slide: 100,
     maxSlide: 150,
     friction: 4,
+
+    zoomSpeed: .1,
 }

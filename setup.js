@@ -1,10 +1,7 @@
 function setup() {
     lab.background = false
 
-    lab.spawn(dna.SlideCamera, {
-        scaleFactor: .95,
-    })
-
+    lib.gen.camera()
     lib.gen.station()
     lib.gen.player()
 

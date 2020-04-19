@@ -1,10 +1,10 @@
 function handleControl(e) {
     switch(e.code) {
         case 'Minus':
-            //lab.world.zoomOut()
+            lab.cam.zoomIn()
             break
         case 'Equal':
-            //lab.world.zoomIn()
+            lab.cam.zoomOut()
             break
 
         case 'KeyP':
@@ -13,7 +13,7 @@ function handleControl(e) {
             break
 
         case 'F8':
-            lib.img.screenshot('platformix')
+            lib.img.screenshot('station-keeping')
             break
     }
 }
