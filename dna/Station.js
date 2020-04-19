@@ -1,8 +1,10 @@
+const UNIT = 1
+
 const df = {
     name: 'station',
-    fuel: 1,
-    life: 1,
-    energy: 1,
+    fuel: UNIT,
+    life: UNIT,
+    energy: UNIT,
     personal: 0,
 }
 
@@ -10,29 +12,37 @@ class Station {
 
     constructor(st) {
         this.charger = {}
+        this.storage = {}
+        this.control = {}
         augment(this, df)
         augment(this, st)
-
-        //this.charger.life = 1
     }
 
     registerHero(hero) {
         this.personal ++
     }
 
-    recharge(name) {
+    recharge(type) {
         // find the resource pad if present in the locker
+        const locker = this.storage[type]
+        if (!locker) return
+
+        if (locker.extractResource()) {
+            log('recharging ' + type)
+            this.charger[type] = UNIT
+        }
     }
 
-    consume(name, volume) {
-        if (this.charger[name]) {
-            const capacity = 1 - this[name]
+    consume(type, volume) {
+        if (this.charger[type]) {
+            const capacity = UNIT - this[type]
             const charge = min(volume, capacity)
-            this[name] = min(this[name] + charge, 1)
-            this.charger[name] -= volume + charge // consumption + charge
-            if (this.charger[name] < 0) this.charger[name] = 0
+            this[type] = min(this[type] + charge, UNIT)
+            this.charger[type] -= volume + charge // consumption + charge
+            if (this.charger[type] < 0) this.charger[type] = 0
         } else {
-            this[name] = max(this[name] - volume, 0)
+            this[type] = max(this[type] - volume, 0)
+            if (this[type] < .7) this.recharge(type)
         }
     }
 

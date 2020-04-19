@@ -58,7 +58,7 @@
       "exportID": "30742908",
       "name": "Locker",
       "limit": -1,
-      "size": {"x": 32, "y": 16},
+      "size": {"x": 16, "y": 32},
       "origin": {"x": 16, "y": 16},
       "originAnchored": true,
       "shape": {
@@ -88,7 +88,10 @@
       "nodeDisplay": 0,
       "nodeGhost": true,
       "tags": [],
-      "values": [],
+      "values": [
+        {"name": "type", "definition": "String", "defaults": "free", "maxLength": 0, "trimWhitespace": true},
+        {"name": "subtype", "definition": "String", "defaults": "", "maxLength": 0, "trimWhitespace": true}
+      ],
       "texture": "../../res/pod/chipX.png",
       "textureImage": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAJdJREFUOI1jYICCQ/uT/5NCwwATA4WAEcZYuOHIf3wK0YEi/3wGBgYGBhaYk+5/ZGB4cu0qUZrPnb/KsHb1XEYMFzy5dpVhyeIJcIUxsQUofJjYufNXGfKzvkK8gHBBIokumETYBdhcQnsXEGsAzAUoscDAwEBUIDIwMDDYOeKIBaq6ABugrQvOnSfOAGQXoAByciTFuREA/KSkn4MfXJYAAAAASUVORK5CYII="
     }

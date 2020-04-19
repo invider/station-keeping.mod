@@ -78,7 +78,7 @@ class StatusPanel {
     }
 
     drawGameOver() {
-        fill('#252525B0')
+        fill('#252525D0')
         rect(0, ry(.4), rx(1), ry(.2))
 
         baseMiddle()

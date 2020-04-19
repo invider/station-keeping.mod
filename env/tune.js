@@ -4,7 +4,7 @@ const tune = {
     jump: 5,
     slide: 100,
     maxSlide: 150,
-    friction: 7,
+    friction: 11,
 
     consume: {
         life:   .01,
