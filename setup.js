@@ -3,13 +3,13 @@ function setup() {
 
     lib.gen.camera()
     lib.gen.station()
-    lib.gen.player()
 
     lab.spawn(dna.hud.Transition, {
         fadein: 0,
         keep: .5,
         fadeout: 2,
     })
+
     /*
     lab.spawn(dna.FixedMesh, {
         name: 'block',

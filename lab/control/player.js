@@ -5,62 +5,64 @@ const ctrl = []
 
 const targetMap = []
 
-function bind(player, target) {
-    target.player = player
-    player = player - 1
+function bind(playerId, target) {
+    target.player = playerId + 1
 
-    targetMap[player] = target
-    if (!ctrl[player]) ctrl[player] = []
+    targetMap[playerId] = target
+    if (!ctrl[playerId]) ctrl[playerId] = []
 }
 
-function release(player) {
-    const target = targetMap[player]
+function release(playerId) {
+    const target = targetMap[playerId]
     if (target) {
-        target.player = 0
-        targetMap[player] = false
+        target.playerId = 0
+        targetMap[playerId] = false
     }
 }
 
-function target(player) {
-    if (!player) player = 0
-    else player = player - 1
-
-    return targetMap[player]
+function target(playerId) {
+    if (!playerId) playerId = 0
+    return targetMap[playerId]
 }
 
-function act(action, player) {
-    if (!player) player = 0
-    else player = player - 1
+function act(action, playerId) {
+    if (!playerId) playerId = 0
 
-    if (ctrl[player] && !ctrl[player][action]) {
-        ctrl[player][action] = ON
+    const target = targetMap[playerId]
+    if (!target) {
+        // spawn playerId
+        const nextPlayer = lib.gen.player(playerId)
+        this.bind(playerId, nextPlayer)
+    }
 
-        const target = targetMap[player]
+    if (ctrl[playerId] && !ctrl[playerId][action]) {
+        ctrl[playerId][action] = ON
         if (target && target.activate) {
             target.activate(action + 1)
         }
     }
 }
 
-function stop(action, player) {
-    if (!player) player = 0
-    else player = player - 1
+function stop(action, playerId) {
+    if (!playerId) playerId = 0
 
-    if (ctrl[player]) {
-        if (ctrl[player][action]) {
-            const target = targetMap[player]
+    if (ctrl[playerId]) {
+        if (ctrl[playerId][action]) {
+            const target = targetMap[playerId]
             if (target && target.deactivate) {
                 target.deactivate(action + 1)
             }
         }
-        ctrl[player][action] = OFF
+        ctrl[playerId][action] = OFF
     }
 }
 
 function evo(dt) {
-
     for (let p = 0; p < ctrl.length; p++) {
-        for (let a = 0; a < ctrl[p].length; a++) {
+        const playerCtrl = ctrl[p]
+        if (!playerCtrl) continue
+
+        for (let a = 0; a < playerCtrl.length; a++) {
             if (ctrl[p][a]) {
                 const target = targetMap[p]
                 if (target && target.act) target.act(a + 1, dt)

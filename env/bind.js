@@ -4,6 +4,8 @@ const keyboard = [
         'PageDown', 'PageUp', 'ShiftRight', 'End', 'Insert' ],
     [ 'KeyK', 'KeyH', 'KeyJ', 'KeyL',
         'BracketRight', 'BracketLeft', 'Enter', 'Backspace', 'Backslash' ],
+    [ 'Numpad8', 'Numpad4', 'Numpad2', 'Numpad6',
+        'Numpad9', 'Numpad7', 'NumpadEnter', 'NumpadSubstract', 'Numpad0' ],
 ]
 
 const keyMap = {}
@@ -22,7 +24,7 @@ function indexKeys() {
             const key = actions[a]
             keyMap[key] = {
                 id: a,
-                player: p,
+                player: p + padMap.length,
             }
         }
     }
