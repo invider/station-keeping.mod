@@ -43,7 +43,7 @@ class Locker extends dna.FixedMesh {
                 }
             }
 
-        } else if (this.type === 'free' && this.subtype && this.fill) {
+        } else if (this.subtype && this.fill) {
             this.populate(this.subtype, this.fill)
         }
     }

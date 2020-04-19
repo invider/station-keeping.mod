@@ -65,17 +65,17 @@
           "y": 48,
           "originX": 16,
           "originY": 16,
-          "values": {"type": "free", "subtype": "", "fill": 0}
+          "values": {"type": "exchange", "subtype": "fuel", "fill": 3}
         },
         {
           "name": "Locker",
           "id": 2,
           "_eid": "30742908",
-          "x": 296,
+          "x": 304,
           "y": 48,
           "originX": 16,
           "originY": 16,
-          "values": {"type": "free", "subtype": "", "fill": 0}
+          "values": {"type": "exchange", "subtype": "life", "fill": 4}
         },
         {
           "name": "Locker",
@@ -156,6 +156,26 @@
           "originX": 16,
           "originY": 16,
           "values": {"type": "free", "subtype": "life", "fill": 5}
+        },
+        {
+          "name": "Locker",
+          "id": 12,
+          "_eid": "30742908",
+          "x": 144,
+          "y": 48,
+          "originX": 16,
+          "originY": 16,
+          "values": {"type": "sample", "subtype": "energy", "fill": 1}
+        },
+        {
+          "name": "Locker",
+          "id": 13,
+          "_eid": "30742908",
+          "x": 264,
+          "y": 48,
+          "originX": 16,
+          "originY": 16,
+          "values": {"type": "sample", "subtype": "energy", "fill": 1}
         }
       ]
     }
