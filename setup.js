@@ -31,4 +31,10 @@ function setup() {
     lab.control.player.bind(1, lab.hero)
 
     lab.background = false
+
+    lab.spawn(dna.hud.Transition, {
+        fadein: 0,
+        keep: .5,
+        fadeout: 2,
+    })
 }
