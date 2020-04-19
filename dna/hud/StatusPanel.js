@@ -11,8 +11,13 @@ class StatusPanel {
     }
 
     drawBars(level, color, x, y) {
-        const bars = min(floor(level * BARS) + 1, BARS)
-                        * (level? 1 : 0)
+        const bars = (min(floor(level * BARS) + 1, BARS)
+                        * (level? 1 : 0))
+
+        const sec = env.timer%1
+        if (bars <= 1 && ((sec > .25 && sec < .5) || (sec > .75))) return
+        else if (bars === 2 && env.timer%1 > .5) return
+
 
         for (let i = 0; i < BARS-bars; i++) {
             lineWidth(1)

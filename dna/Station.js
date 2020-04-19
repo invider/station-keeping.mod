@@ -18,6 +18,7 @@ class Station {
     }
 
     evo(dt) {
+        env.timer += dt
         env.day += dt/env.tune.dayLength
 
         this.fuel = max(this.fuel - env.tune.consume.fuel*dt, 0)
