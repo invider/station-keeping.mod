@@ -55,19 +55,26 @@ class StatusPanel {
             let dy = -32
             x = rx(1)
 
-            fill(env.style.color.life)
-            text('life: ' + round(st.life * 100) + '%', x, y)
+            fill(env.style.color.energy)
+            text('energy: ' + round(st.energy * 100) + '%', x, y)
 
             y += dy
             fill(env.style.color.fuel)
             text('fuel: ' + round(st.fuel * 100) + '%', x, y)
 
             y += dy
-            fill(env.style.color.energy)
-            text('energy: ' + round(st.energy * 100) + '%', x, y)
-            y += dy
-
+            fill(env.style.color.life)
+            text('life: ' + round(st.life * 100) + '%', x, y)
         }
+    }
+
+    drawDay() {
+        baseTop()
+        alignLeft()
+        font(env.style.font)
+        fill(env.style.color.day)
+
+        text('Day ' + floor(env.day), env.style.edge, env.style.edge)
     }
 
     drawDay() {
