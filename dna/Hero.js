@@ -10,10 +10,34 @@ class Hero extends dna.DynamicMesh {
     constructor(st) {
         super(st)
         this.move = []
+        this.items = []
+        this.focus = false
+    }
+
+    showItems() {
+        this.itemMenu.show()
+        this.lockerMenu.show()
+        this.focus = this.itemMenu
+    }
+
+    hideItems() {
+        this.itemMenu.hide()
+        this.lockerMenu.hide()
+        this.focus = false
     }
 
     activate(action) {
-        this.move[action] = true
+        if (this.focus) {
+            // focus on items menu
+            this.focus.activate(action)
+
+        } else {
+            if (action <= 4) {
+                this.move[action] = true
+            } else if (action === 5 || action === 7) {
+                this.showItems()
+            }
+        }
     }
 
     deactivate(action) {

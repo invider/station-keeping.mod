@@ -1,5 +1,6 @@
 const df = {
-    hidden: false,
+    hidden: true,
+    selected: 0,
     cells: 7,
     tw: 16,
     th: 16,
@@ -13,12 +14,67 @@ class ItemMenu {
         augment(this, st)
     }
 
+    getSelected() {
+        if (this.selected === this.cells - 1) return 'close'
+        return this.keeper.items[this.selected]
+    }
+
+    getItemType(i) {
+        if (i === this.cells - 1) return 'close'
+        const pod = this.keeper.items[i]
+        if (pod) return pod.type
+    }
+
+    left() {
+        this.selected --
+        if (this.selected < 0) this.selected = this.cells - 1
+    }
+
+    right() {
+        this.selected ++
+        if (this.selected >= this.cells) this.selected = 0
+    }
+
+    up() {}
+
+    down() {}
+
+    use() {
+        const pod = this.getSelected()
+        if (!pod) return
+
+        if (pod === 'close') {
+            this.target.hideItems()
+        } else {
+        }
+    }
+
+    activate(action) {
+        switch(action) {
+            case 1: this.up(); break;
+            case 2: this.left(); break;
+            case 3: this.down(); break;
+            case 4: this.right(); break;
+
+            case 5:
+            case 7:
+                this.use()
+                break
+
+            case 6:
+            case 8:
+                this.target.hideItems()
+                break
+        }
+    }
+
     fixOnTarget() {
-        this.x = this.target.x
-        this.y = this.target.y - 20
+        this.x = this.target.x + this.dx
+        this.y = this.target.y + this.dy
     }
 
     draw() {
+        if (!this.target || !this.keeper) return
         this.fixOnTarget()
 
         save()
@@ -35,11 +91,21 @@ class ItemMenu {
             x = lab.cam.worldX(rx(1)) - this.x - w
         }
 
-        lineWidth(1)
-        stroke(.19, .5, .5)
         for (let i = 0; i < this.cells; i++) {
+
+            fill(.1, .05, .2)
             rect(x, y, this.tw, this.th)
-            image(res.pod.chipX, x+1, y+1, this.tw-2, this.th-2)
+            if (i === this.selected) {
+                lineWidth(1)
+                stroke(.25, .5, .5)
+                rect(x, y, this.tw, this.th)
+            }
+
+            const type = this.getItemType(i)
+            if (type) {
+                image(res.pod[type], x+1, y+1, this.tw-2, this.th-2)
+            }
+
             x += this.tw + this.gap
         }
 
@@ -52,5 +118,6 @@ class ItemMenu {
 
     show() {
         this.hidden = false
+        this.selected = 0
     }
 }
