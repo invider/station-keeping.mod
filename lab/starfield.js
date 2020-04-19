@@ -72,6 +72,15 @@ module.exports =  {
                 if (star.x < - 2*EDGE || star.x > rx(1) + 2*EDGE || star.y > env.height*2) star.a = false
             }
         })
+
+        /*
+        // TODO what is happening with names when hero added?
+        if (lab.cam && lab.cam.shell) {
+            env.statusInfo = {
+                shell: lab.cam.shell.name,
+            }
+        }
+        */
     },
 
     draw: function() {

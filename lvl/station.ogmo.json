@@ -56,7 +56,14 @@
       "gridCellHeight": 8,
       "gridCellsX": 51,
       "gridCellsY": 31,
-      "entities": []
+      "entities": [
+        {"name": "Locker", "id": 0, "_eid": "30742908", "x": 112, "y": 48, "originX": 16, "originY": 16},
+        {"name": "Locker", "id": 2, "_eid": "30742908", "x": 296, "y": 48, "originX": 16, "originY": 16},
+        {"name": "Locker", "id": 3, "_eid": "30742908", "x": 96, "y": 224, "originX": 16, "originY": 16},
+        {"name": "Locker", "id": 5, "_eid": "30742908", "x": 312, "y": 224, "originX": 16, "originY": 16},
+        {"name": "Locker", "id": 6, "_eid": "30742908", "x": 136, "y": 120, "originX": 16, "originY": 16},
+        {"name": "Locker", "id": 7, "_eid": "30742908", "x": 128, "y": 184, "originX": 16, "originY": 16}
+      ]
     }
   ]
 }

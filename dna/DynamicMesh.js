@@ -65,24 +65,29 @@ class DynamicMesh extends dna.FixedMesh {
             const target = ls[i]
             target.name = this.name
 
-            if (target
-                    && target !== this
-                    && target.solid
-                    && !target.dead) {
-                if (target.testPoints) {
-                    if (target.testPoints(hpoints)) {
-                        this.mv.x = 0
-                    }
-                    if (target.testPoints(vpoints)) {
-                        this.mv.y = 0
+            if (target && target !== this && !target.dead) {
+                
+                if (target.touchable) {
+                    if (target.testRect(this)) {
+                        this.touched = target
                     }
 
-                } else {
-                    if (target.testRect(hfuture)) {
-                        this.mv.x = 0
-                    }
-                    if (target.testRect(vfuture)) {
-                        this.mv.y = 0
+                } else if (target.solid) {
+                    if (target.testPoints) {
+                        if (target.testPoints(hpoints)) {
+                            this.mv.x = 0
+                        }
+                        if (target.testPoints(vpoints)) {
+                            this.mv.y = 0
+                        }
+
+                    } else {
+                        if (target.testRect(hfuture)) {
+                            this.mv.x = 0
+                        }
+                        if (target.testRect(vfuture)) {
+                            this.mv.y = 0
+                        }
                     }
                 }
             }

@@ -14,10 +14,18 @@ class Hero extends dna.DynamicMesh {
         this.focus = false
     }
 
+    swipeFocus() {
+        if (this.focus === this.itemMenu) this.focus = this.lockerMenu
+        else this.focus = this.itemMenu
+    }
+
     showItems() {
-        this.itemMenu.show()
-        this.lockerMenu.show()
-        this.focus = this.itemMenu
+        if (this.touched && this.touched instanceof dna.Locker) {
+            this.itemMenu.show()
+            this.lockerMenu.keeper = this.touched
+            this.lockerMenu.show()
+            this.focus = this.itemMenu
+        }
     }
 
     hideItems() {
@@ -45,6 +53,8 @@ class Hero extends dna.DynamicMesh {
     }
 
     evo(dt) {
+        this.touched = false
+
         if (this.move[1]) {
             // jump
             if (this.mv.y > -1 && this.mv.y < 1) {

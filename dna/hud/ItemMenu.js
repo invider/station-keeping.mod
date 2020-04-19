@@ -35,18 +35,45 @@ class ItemMenu {
         if (this.selected >= this.cells) this.selected = 0
     }
 
-    up() {}
+    up() {
+        if (!this.locker) this.target.swipeFocus()
+    }
 
-    down() {}
+    down() {
+        if (this.locker) this.target.swipeFocus()
+    }
 
-    use() {
+    move() {
         const pod = this.getSelected()
         if (!pod) return
 
         if (pod === 'close') {
+
             this.target.hideItems()
         } else {
+            const pod = this.getSelected()
+
+            if (pod) {
+                // got something to move
+                if (this.receiver.push(pod)) {
+                    this.keeper.items[this.selected] = false
+                }
+            } else {
+                // TODO cancel sfx
+            }
         }
+    }
+
+    push(pod) {
+        // find an empty slot
+        for (let i = 0; i < this.cells-1; i++) {
+            const exist = this.keeper.items[i]
+            if (!exist) {
+                this.keeper.items[i] = pod
+                return true
+            }
+        }
+        return false
     }
 
     activate(action) {
@@ -58,7 +85,7 @@ class ItemMenu {
 
             case 5:
             case 7:
-                this.use()
+                this.move()
                 break
 
             case 6:
@@ -76,6 +103,7 @@ class ItemMenu {
     draw() {
         if (!this.target || !this.keeper) return
         this.fixOnTarget()
+        const focused = this === this.target.focus
 
         save()
         translate(this.x, this.y)
@@ -95,7 +123,7 @@ class ItemMenu {
 
             fill(.1, .05, .2)
             rect(x, y, this.tw, this.th)
-            if (i === this.selected) {
+            if (focused && i === this.selected) {
                 lineWidth(1)
                 stroke(.25, .5, .5)
                 rect(x, y, this.tw, this.th)

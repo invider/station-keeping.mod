@@ -14,7 +14,7 @@
   "defaultExportMode": ".json",
   "compactExport": false,
   "externalScript": "",
-  "playCommand": "",
+  "playCommand": "/home/shock/dna/pub/station-keeping.mod/assets/tileset/install",
   "entityTags": [],
   "layers": [
     {
@@ -53,7 +53,46 @@
       "excludedTags": []
     }
   ],
-  "entities": [],
+  "entities": [
+    {
+      "exportID": "30742908",
+      "name": "Locker",
+      "limit": -1,
+      "size": {"x": 32, "y": 32},
+      "origin": {"x": 16, "y": 16},
+      "originAnchored": true,
+      "shape": {
+        "label": "Rectangle",
+        "points": [
+          {"x": -1, "y": -1},
+          {"x": 1, "y": -1},
+          {"x": -1, "y": 1},
+          {"x": 1, "y": -1},
+          {"x": -1, "y": 1},
+          {"x": 1, "y": 1}
+        ]
+      },
+      "color": "#ff0000ff",
+      "tileX": false,
+      "tileY": false,
+      "tileSize": {"x": 8, "y": 8},
+      "resizeableX": false,
+      "resizeableY": false,
+      "rotatable": false,
+      "rotationDegrees": 360,
+      "canFlipX": false,
+      "canFlipY": false,
+      "canSetColor": false,
+      "hasNodes": false,
+      "nodeLimit": 0,
+      "nodeDisplay": 0,
+      "nodeGhost": true,
+      "tags": [],
+      "values": [],
+      "texture": "../../res/pod/chipX.png",
+      "textureImage": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAJdJREFUOI1jYICCQ/uT/5NCwwATA4WAEcZYuOHIf3wK0YEi/3wGBgYGBhaYk+5/ZGB4cu0qUZrPnb/KsHb1XEYMFzy5dpVhyeIJcIUxsQUofJjYufNXGfKzvkK8gHBBIokumETYBdhcQnsXEGsAzAUoscDAwEBUIDIwMDDYOeKIBaq6ABugrQvOnSfOAGQXoAByciTFuREA/KSkn4MfXJYAAAAASUVORK5CYII="
+    }
+  ],
   "tilesets": [
     {"label": "panels", "path": "../../res/tileset/panels.map8x8.png", "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAACACAYAAAC7gW9qAAAAAXNSR0IArs4c6QAAAnZJREFUeJzt1kFIk2Ecx/HfROlSBsJYdOkgYRI4D0XELiKJoaGBnQMtytOE8FLhKdgOdbIOEkjQoQgqyJgUQbfRGEVORjptjA5SYyBSJ0F4O8y97AHd3tftdWHfz+V93+d5n3fP///+3+eZTzUaGX9gOb23w9/m6tmZwroGLoRcz8mNZk+fXqbD36ZE4oWrMf5AQFJI2dTSjv2p1IKCwW7juqS8vRLXCSi98Vczkz6nY8qD//jhvaNxvX39jiqrPdi547lTnlfAXoJ3o7w6aqkAS5IezW8YnYe+NNnniyfnJUldqwOSpIv3bliS9G7tsaMf8iJ4qc4V8HXtqNE5O+WzJ30pGrUk6eFUqxGIm0XQC3WpgPTbsCTpbjpvdA5Hf9nB5VZuG21XFyZ0Lh7XxN7m7QmnQZczKmDzZ2LXG48fGTbuyeVyUsjbLaqk/M266XPCSMDGj7jRmXhz3y73waGwUeqTyaRPyaRGxs96+glcu3K+4toxOBS2gsFutQc7lU0tGcfXT58rNjddcbyRgJmejNF5PTNqB5df+WP0nTk16irw3r5+y6uFsBYVt8HPy0+qTvhET+VFMFNYlz8QUCGf/yeT0CxJzwqni1db24vI7+IhcueyJUnHWr4XG7Y3ibFbEVdBbB3ukl+LdhJqnXQ97dtf4VIS3I7xWrMkRcZu+mZffrLUKrVYxa0wu7qiTUnL39JKSSrki+21lPB+BORWU/VbDjb7E6i23RxU+7YGeCU2N+2Lze19/H//CZCARk+g0UhAoyfQaCSg0RMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADYzV+LpMFJTDILagAAAABJRU5ErkJggg==", "tileWidth": 8, "tileHeight": 8, "tileSeparationX": 0, "tileSeparationY": 0}
   ]

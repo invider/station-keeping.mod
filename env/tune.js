@@ -3,7 +3,7 @@ const tune = {
     jump: 5,
     slide: 100,
     maxSlide: 150,
-    friction: 4,
+    friction: 7,
 
     zoomSpeed: .1,
 }
