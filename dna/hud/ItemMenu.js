@@ -45,21 +45,18 @@ class ItemMenu {
 
     move() {
         const pod = this.getSelected()
-        if (!pod) return
+        if (!pod) {
+            // TODO cancel sfx
+            this.target.hideItems()
+        }
 
         if (pod === 'close') {
-
             this.target.hideItems()
-        } else {
-            const pod = this.getSelected()
 
-            if (pod) {
-                // got something to move
-                if (this.receiver.push(pod)) {
-                    this.keeper.items[this.selected] = false
-                }
-            } else {
-                // TODO cancel sfx
+        } else {
+            // got something to move
+            if (this.receiver.push(pod)) {
+                this.keeper.items[this.selected] = false
             }
         }
     }

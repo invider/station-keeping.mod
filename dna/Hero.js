@@ -12,6 +12,11 @@ class Hero extends dna.DynamicMesh {
         this.move = []
         this.items = []
         this.focus = false
+        this.solid = false
+    }
+
+    init() {
+        lab.station.registerHero(this)
     }
 
     swipeFocus() {

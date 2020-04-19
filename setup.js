@@ -2,12 +2,17 @@ function setup() {
     lab.background = false
 
     lib.gen.camera()
-    lib.gen.station()
+    trap('start')
 
+    _.disable()
     lab.spawn(dna.hud.Transition, {
         fadein: 0,
         keep: .5,
         fadeout: 2,
+
+        onFadeout: function() {
+            _.enable()
+        }
     })
 
     /*

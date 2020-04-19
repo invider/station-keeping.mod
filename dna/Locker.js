@@ -19,6 +19,6 @@ class Locker extends dna.FixedMesh {
     }
 
     draw() {
-        image(res.pod.chipX, this.x - this.w/2, this.y - this.h/2, this.w, this.h)
+        image(res.prop.locker, this.x - this.w/2, this.y - this.h/2, this.w, this.h)
     }
 }
