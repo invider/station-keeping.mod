@@ -13,7 +13,7 @@ class Station {
         augment(this, df)
         augment(this, st)
 
-        this.charger.life = 1
+        //this.charger.life = 1
     }
 
     registerHero(hero) {
