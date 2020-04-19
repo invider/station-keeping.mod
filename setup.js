@@ -2,8 +2,7 @@ function setup() {
     lab.background = false
 
     lab.spawn(dna.SlideCamera, {
-        x: 0,
-        y: 0,
+        scaleFactor: .95,
     })
 
     lib.gen.station()
