@@ -1,22 +1,19 @@
 function setup() {
-    // setup level 3
-    lab.attach(_.lvl.station.space)
-    lab.attach(_.lvl.station.shell)
-    lab.attach(_.lvl.station.decor)
+    lab.background = false
 
-    lab.space.step = 16
-    lab.shell.step = 16
-    lab.decor.step = 16
-
-    lab.spawn(dna.Hero, {
-        name: 'hero',
-        Z: 11,
-        x: 300,
-        y: 90,
-        w: 24,
-        h: 32,
+    lab.spawn(dna.SlideCamera, {
+        x: 0,
+        y: 0,
     })
 
+    lib.gen.station()
+    lib.gen.player()
+
+    lab.spawn(dna.hud.Transition, {
+        fadein: 0,
+        keep: .5,
+        fadeout: 2,
+    })
     /*
     lab.spawn(dna.FixedMesh, {
         name: 'block',
@@ -27,14 +24,4 @@ function setup() {
         h: 32,
     })
     */
-
-    lab.control.player.bind(1, lab.hero)
-
-    lab.background = false
-
-    lab.spawn(dna.hud.Transition, {
-        fadein: 0,
-        keep: .5,
-        fadeout: 2,
-    })
 }

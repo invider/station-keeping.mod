@@ -3,7 +3,7 @@
 const slide = 50
 const maxSlide = 100
 
-const R = 16
+const R = 8
 
 class Hero extends dna.DynamicMesh {
 
