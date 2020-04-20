@@ -20,6 +20,12 @@ function release(playerId) {
     }
 }
 
+function releaseAll() {
+    for (let i = 0; i < targetMap.length; i++) {
+        targetMap[i] = false
+    }
+}
+
 function target(playerId) {
     if (!playerId) playerId = 0
     return targetMap[playerId]
@@ -29,7 +35,7 @@ function act(action, playerId) {
     if (!playerId) playerId = 0
 
     const target = targetMap[playerId]
-    if (!target) {
+    if (!target && env.state === 'play') {
         // spawn playerId
         const nextPlayer = lib.gen.player(playerId)
         this.bind(playerId, nextPlayer)
