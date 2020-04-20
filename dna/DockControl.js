@@ -50,6 +50,7 @@ class DockControl extends dna.FixedMesh {
         // TODO distribute goods on the market supply
         this.exchange.empty()
         this.exchange.populate(type, qty)
+        this.exchange.blink()
         this.close()
         log('trade is done')
     }
@@ -66,13 +67,15 @@ class DockControl extends dna.FixedMesh {
         })
     }
 
-    open() {
+    use() {
         if (this.on) {
             this.close()
+            sfx.play('selectHi', .7)
 
         } else {
             this.on = true
             this.state = 'open'
+            sfx.play('selectHi', .7)
         }
         // TODO play switch sfx
     }

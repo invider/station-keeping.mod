@@ -1,14 +1,15 @@
 const TARGETY = 40
 const SHIFTX = 35
 
+let id = 0
 const df = {
     state: 'docking',
-    timer: 5,
 }
 
 class Ship {
 
     constructor(st) {
+        this.name = 'ship' + (++id)
         this.w = res.ship.width
         this.h = res.ship.height
         augment(this, df)
@@ -18,6 +19,7 @@ class Ship {
         switch(this.dock.port) {
             case 1:
                 this.x = -this.w
+                this.startX = this.x
                 this.dx = 10
                 this.targetX = SHIFTX
                 break
@@ -25,10 +27,18 @@ class Ship {
             case 2:
                 const edge = lab.cam.worldX(rx(1))
                 this.x = edge + this.w
+                this.startX = this.x
                 this.dx = -10
                 this.targetX = edge - SHIFTX
                 break
         }
+    }
+
+    contact() {
+        this.state = 'trading'
+        this.x = this.targetX
+        this.timer = env.tune.stayDocked = 5
+        sfx.play('burn1', 1)
     }
 
     evo(dt) {
@@ -37,12 +47,9 @@ class Ship {
                 this.x += this.dx*dt
 
                 if (this.dx < 0 && this.x < this.targetX) {
-                    this.x = this.targetX
-                    this.state = 'trading'
+                    this.contact()
                 } else if (this.dx > 0 && this.x > this.targetX) {
-                    this.x = this.targetX
-                    this.state = 'trading'
-                    sfx.play('arrived', 1)
+                    this.contact()
                 }
                 break
 
@@ -51,12 +58,15 @@ class Ship {
                 if (this.timer < 0) {
                     this.onDocked()
                     this.state = 'outbound'
-                    sfx.play('consume', 1)
+                    sfx.play('burn2', 1)
                 }
                 break
 
             case 'outbound':
                 this.x -= this.dx*dt
+
+                if (this.dx < 0 && this.x > this.startX) this.kill()
+                else if (this.dx > 0 && this.x < this.startX) this.kill()
         }
 
     }
@@ -67,5 +77,9 @@ class Ship {
         if (this.dx < 0) scale(-1, 1)
         image(res.ship, -this.w/2, -this.h/2, this.w, this.h)
         restore()
+    }
+
+    kill() {
+        this.__.detach(this)
     }
 }

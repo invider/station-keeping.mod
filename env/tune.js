@@ -18,6 +18,7 @@ const tune = {
     chipsToRecharge: 4,
     chipBurnRate: .001,
 
+    stayDocked: 5,
 
     // economy
     minResupply: 5,

@@ -154,6 +154,6 @@ class ItemMenu {
     show() {
         this.hidden = false
         this.selected = 0
-        sfx.play('open', .6)
+        sfx.play('open', .4)
     }
 }

@@ -24,7 +24,7 @@ class Hero extends dna.DynamicMesh {
         else this.focus = this.itemMenu
     }
 
-    open() {
+    use() {
         if (!this.touched) return
 
         if (this.touched instanceof dna.Locker) {
@@ -35,7 +35,7 @@ class Hero extends dna.DynamicMesh {
 
         } else if (this.touched instanceof dna.DockControl
                 || this.touched instanceof dna.TradeControl) {
-            this.touched.open()
+            this.touched.use()
         }
     }
 
@@ -43,7 +43,7 @@ class Hero extends dna.DynamicMesh {
         this.itemMenu.hide()
         this.lockerMenu.hide()
         this.focus = false
-        sfx.play('close', .6)
+        sfx.play('close', .5)
     }
 
     activate(action) {
@@ -55,7 +55,7 @@ class Hero extends dna.DynamicMesh {
             if (action <= 4) {
                 this.move[action] = true
             } else if (action === 5 || action === 7) {
-                this.open()
+                this.use()
             }
         }
     }

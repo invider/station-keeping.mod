@@ -4,6 +4,8 @@ const style = {
     font: '32px coolville',
     titleFont: '48px pixel-operator-mono8-bold',
 
+    blinkTime: 5,
+
     edge: 15,
 
     bar: {

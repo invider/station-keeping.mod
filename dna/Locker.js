@@ -3,6 +3,7 @@
 const df = {
     solid: false,
     touchable: true,
+    blinkTimer: 0,
     x: 0,
     y: 0,
     w: 16,
@@ -45,6 +46,8 @@ class Locker extends dna.FixedMesh {
             if (item && item.type === 'chip') {
                 if (rnd() < env.tune.chipBurnRate * dt) {
                     item.type = 'broken'
+                    sfx.play('deviceOff', 1)
+                    this.blink()
                 }
             }
         }
@@ -116,6 +119,14 @@ class Locker extends dna.FixedMesh {
         return false
     }
 
+    blink() {
+        this.blinkTimer = env.style.blinkTime
+    }
+
+    evo(dt) {
+        this.blinkTimer -= dt
+    }
+
     drawIndicator() {
         const qty = this.qty()
         const bw = env.style.locker.indicator.width
@@ -129,6 +140,11 @@ class Locker extends dna.FixedMesh {
         lineWidth(.5)
         stroke(.5, 0, .2)
         rect(x-bg, y-bg, w+2*bg, bh+2*bg)
+
+        if (this.blinkTimer > 0) {
+            const t = env.timer%1
+            if (t < .25 || (t > .5 && t < .75)) return
+        }
 
         for (let i = 0; i < this.items.length; i++) {
             const item = this.items[i]

@@ -17,11 +17,12 @@ class TradeControl extends dna.FixedMesh {
         super(supplement(st, df))
     }
 
-    open() {
+    use() {
         this.qty ++
         if (this.qty > env.tune.maxStorage) {
             this.qty = 1
         }
+        sfx.play('selectHi', .7)
     }
 
     value() {

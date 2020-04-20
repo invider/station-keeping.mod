@@ -28,9 +28,11 @@ class Station {
         const locker = this.storage[type]
         if (!locker) return
 
+        // consume resource
         if (locker.extractResource()) {
-            sfx.play('consume', 1)
             this.charger[type] = UNIT
+            locker.blink()
+            sfx.play('noisy', 1)
         }
     }
 
