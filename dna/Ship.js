@@ -1,5 +1,6 @@
-const TARGETY = 40
-const SHIFTX = 35
+const TARGETY = 48
+const SHIFTX1 = 32
+const SHIFTX2 = 98
 
 let id = 0
 const df = {
@@ -21,7 +22,7 @@ class Ship {
                 this.x = -this.w
                 this.startX = this.x
                 this.dx = 10
-                this.targetX = SHIFTX
+                this.targetX = SHIFTX1
                 break
 
             case 2:
@@ -29,7 +30,7 @@ class Ship {
                 this.x = edge + this.w
                 this.startX = this.x
                 this.dx = -10
-                this.targetX = edge - SHIFTX
+                this.targetX = edge - SHIFTX2
                 break
         }
     }

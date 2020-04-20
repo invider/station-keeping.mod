@@ -176,6 +176,47 @@
       ],
       "texture": "../../res/prop/switchOn.png",
       "textureImage": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAADRJREFUGJVjVFIw+c+AB7AwMDAwBO39gSFxZdV7hlszJRmY8OlmYGCghwIWmINwAUZC3gQANHgLaucrkwIAAAAASUVORK5CYII="
+    },
+    {
+      "exportID": "41765917",
+      "name": "Terminal",
+      "limit": -1,
+      "size": {"x": 24, "y": 16},
+      "origin": {"x": 12, "y": 8},
+      "originAnchored": true,
+      "shape": {
+        "label": "Rectangle",
+        "points": [
+          {"x": -1, "y": -1},
+          {"x": 1, "y": -1},
+          {"x": -1, "y": 1},
+          {"x": 1, "y": -1},
+          {"x": -1, "y": 1},
+          {"x": 1, "y": 1}
+        ]
+      },
+      "color": "#ff0000ff",
+      "tileX": false,
+      "tileY": false,
+      "tileSize": {"x": 16, "y": 16},
+      "resizeableX": false,
+      "resizeableY": false,
+      "rotatable": false,
+      "rotationDegrees": 360,
+      "canFlipX": false,
+      "canFlipY": false,
+      "canSetColor": false,
+      "hasNodes": false,
+      "nodeLimit": 0,
+      "nodeDisplay": 0,
+      "nodeGhost": true,
+      "tags": [],
+      "values": [
+        {"name": "type", "definition": "String", "defaults": "", "maxLength": 0, "trimWhitespace": true},
+        {"name": "title", "definition": "String", "defaults": "", "maxLength": 0, "trimWhitespace": true}
+      ],
+      "texture": "../../res/prop/terminalOff.png",
+      "textureImage": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAQCAYAAAAMJL+VAAAAAXNSR0IArs4c6QAAAKlJREFUOI1j9PbL+89AQ8BES8MZGBgYWJA5585so4qhRiZecDbcB9QyHN0sjCAyzk1mMM5NhrORxdD5uOSQASMskqnpAwYGRDCxoEugu+Ds5LkExbDxYYDmPsAZB7jCFFmMGLUDEweEwh0WxjC1MDayWrw+QNeIrAFbMGBTC/MB3AJDIz2GubM6CPudCJCcVsFw/twlVAtgllADwAxnYECLA2QJagGal6YA/JhpmszP/kIAAAAASUVORK5CYII="
     }
   ],
   "tilesets": [
