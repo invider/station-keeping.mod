@@ -7,7 +7,6 @@ const df = {
     y: 0,
     w: 16,
     h: 32,
-    capacity: 6,
 }
 
 class Locker extends dna.FixedMesh {
@@ -15,6 +14,7 @@ class Locker extends dna.FixedMesh {
     constructor(st) {
         super(supplement(st, df))
         this.items = []
+        this.capacity = env.tune.maxStorage
         augment(this, df)
         augment(this, st)
     }

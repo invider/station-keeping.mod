@@ -1,7 +1,6 @@
 const df = {
     hidden: true,
     selected: 0,
-    cells: 7,
     tw: 16,
     th: 16,
     gap: 2,
@@ -10,6 +9,7 @@ const df = {
 class ItemMenu {
 
     constructor(st) {
+        this.cells = env.tune.maxStorage + 1
         augment(this, df)
         augment(this, st)
     }

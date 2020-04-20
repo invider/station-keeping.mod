@@ -22,10 +22,8 @@ class DockControl extends dna.FixedMesh {
         lab.cam._ls.forEach(e => {
             if (e instanceof dna.Locker) {
                 if (e.type === 'exchange' && e.group === dock.group) {
-                    log('found match')
                     dock.exchange = e
                 } else if (e.type === 'sample' && e.group === dock.group) {
-                    log('found sample')
                     dock.sample = e
                 }
             }
