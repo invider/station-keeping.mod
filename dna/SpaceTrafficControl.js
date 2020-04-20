@@ -20,6 +20,10 @@ class SpaceTrafficControl {
         this.recalc()
     }
 
+    getPrice(type) {
+        return this.price[type] || 0
+    }
+
     totalSupply() {
         let total = 0
         for (let i = 0; i < env.tune.types.length; i++) {
@@ -66,7 +70,7 @@ class SpaceTrafficControl {
         if (!qty) return
         const type = port.type()
         if (!type) return
-        const incomeValue = floor(this.price[type] * qty)
+        const incomeValue = floor(this.getPrice(type) * qty)
         // ship offers
         const supply = this.supply[type]
 

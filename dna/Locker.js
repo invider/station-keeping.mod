@@ -39,6 +39,17 @@ class Locker extends dna.FixedMesh {
         }
     }
 
+    burn(dt) {
+        for (let i = 0; i < this.items.length; i++) {
+            const item = this.items[i]
+            if (item && item.type === 'chip') {
+                if (rnd() < env.tune.chipBurnRate * dt) {
+                    item.type = 'broken'
+                }
+            }
+        }
+    }
+
     first() {
         for (let i = 0; i < this.items.length; i++) {
             if (this.items[i]) return this.items[i].type
@@ -64,11 +75,11 @@ class Locker extends dna.FixedMesh {
 
     value() {
         let total = 0
-        const price = lab.stc.price
+        const stc = lab.stc
         for (let i = 0; i < this.items.length; i++) {
             if (this.items[i]) {
                 const type = this.items[i].type
-                total += price[type]
+                total += stc.getPrice(type)
             }
         }
         return total

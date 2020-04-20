@@ -34,7 +34,13 @@ class Station {
         }
     }
 
-    consume(type, volume) {
+    burn(type, dt) {
+        this.control[type].burn(dt)
+    }
+
+    consume(type, volume, dt) {
+        this.burn(type, dt)
+
         let chips = this.control[type].numberOf('chip')
         if (this.charger[type] && chips >= env.tune.chipsToRecharge) {
             const capacity = UNIT - this[type]
@@ -59,14 +65,9 @@ class Station {
         env.timer += dt
         env.day += dt/env.tune.dayLength
 
-        this.consume('fuel', env.tune.consume.fuel*dt)
-        //this.fuel = max(this.fuel - fuel, 0)
-
-        this.consume('life', env.tune.consume.life*dt*this.personal)
-        //this.life = max(this.life - life, 0)
-
-        this.consume('energy', env.tune.consume.energy*dt)
-        //this.energy = max(this.energy - energy, 0)
+        this.consume('fuel', env.tune.consume.fuel*dt, dt)
+        this.consume('life', env.tune.consume.life*dt*this.personal, dt)
+        this.consume('energy', env.tune.consume.energy*dt, dt)
     }
 
 }
