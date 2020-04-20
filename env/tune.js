@@ -4,10 +4,15 @@ const tune = {
     jump: 5,
     slide: 100,
     maxSlide: 150,
-    friction: 11,
+    friction: 15,
 
     maxStorage: 7,
     consume: {
+        life:   .01,
+        fuel:   .01,
+        energy: .001,
+    },
+    recharge: {
         life:   .01,
         fuel:   .01,
         energy: .001,
@@ -25,7 +30,7 @@ const tune = {
         'fuel',
         'energy',
     ],
-    ultimatePrice: 7, // price for missing resources
+    ultimatePrice: 5, // price for missing resources
 
     zoomSpeed: .1,
 }

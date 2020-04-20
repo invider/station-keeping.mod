@@ -44,10 +44,10 @@ class SpaceTrafficControl {
 
     resupply() {
         switch(RND(4)) {
-            case 0: this.supply.chip = RND(env.tune.maxStorage); break;
+            case 0: this.supply.chip = RND(env.tune.maxStorage-2); break;
             case 1: this.supply.life = RND(env.tune.maxStorage); break;
             case 2: this.supply.fuel = RND(env.tune.maxStorage); break;
-            case 3: this.supply.energy = RND(env.tune.maxStorage); break;
+            case 3: this.supply.energy = RND(env.tune.maxStorage-4); break;
         }
         this.recalc()
 
@@ -58,7 +58,7 @@ class SpaceTrafficControl {
         if (!port || port.state !== 'open') return
 
         // port offers
-        const portValue = port.value()
+        const portValue = ceil(port.value())
         if (!portValue) return
 
         // port wants
@@ -66,33 +66,35 @@ class SpaceTrafficControl {
         if (!qty) return
         const type = port.type()
         if (!type) return
-        const shipValue = this.price[type] * qty
+        const incomeValue = floor(this.price[type] * qty)
         // ship offers
         const supply = this.supply[type]
 
         log('dock #' + port.port + ': ' + port.state)
         log('port offers: $' + portValue + ' of goods')
-        log('port wants: $' + shipValue + ' of ' + type + '(' + qty + ')')
+        log('port wants: $' + incomeValue + ' of ' + type + '(' + qty + ')')
 
         if (supply < qty) {
-            log('not enough goods, canceled')
+            log('not enough goods in orbit...')
             return
         }
-        if (shipValue > portValue) {
-            log('offered value is too low, canceled')
+        if (incomeValue > portValue) {
+            log('offered value is too low...')
             return
         }
 
-        log('seems to be good! Initiating docking')
-        //port.trade(type, qty)
+        log(`port #${port.port}: shipment of ${type}(${qty})`)
         port.tradeSequence(type, qty)
+        return true
     }
 
     trade() {
-        const stc = this
-        lab.station.port.forEach(port => stc.tradeWithPort(port))
-
         this.tradeTimer = env.tune.minTradeDelay + RND(env.tune.deltaTradeDelay)
+
+        for (let i = 0; i < lab.station.port.length; i++) {
+            const port = lab.station.port[i]
+            if (this.tradeWithPort(port)) return
+        }
     }
 
     control() {

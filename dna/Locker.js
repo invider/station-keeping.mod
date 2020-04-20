@@ -53,6 +53,15 @@ class Locker extends dna.FixedMesh {
         return total
     }
 
+    numberOf(type) {
+        let total = 0
+        for (let i = 0; i < this.items.length; i++) {
+            const item = this.items[i]
+            if (item && item.type === type) total ++
+        }
+        return total
+    }
+
     value() {
         let total = 0
         const price = lab.stc.price
@@ -86,8 +95,9 @@ class Locker extends dna.FixedMesh {
     // find a matching storage item for consumption by the system
     extractResource() {
         if (this.type !== 'storage') return false
-        for (let i = 0; i < this.items.length; i++) {
-            if (this.items[i].type === this.subtype) {
+        for (let i = this.items.length-1; i >= 0; i--) {
+            const item = this.items[i]
+            if (item && item.type === this.subtype) {
                 this.items[i] = false
                 return true
             }
