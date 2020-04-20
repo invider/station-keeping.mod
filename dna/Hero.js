@@ -27,7 +27,7 @@ class Hero extends dna.DynamicMesh {
     use() {
         if (!this.touched) return
 
-        if (this.touched instanceof dna.Locker) {
+        if (this.touched instanceof dna.Locker && !this.touched.locked) {
             this.itemMenu.show()
             this.lockerMenu.keeper = this.touched
             this.lockerMenu.show()

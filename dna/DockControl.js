@@ -54,9 +54,18 @@ class DockControl extends dna.FixedMesh {
         env.score.loaded += qty
         this.exchange.blink()
         this.close()
+
+        this.unlock()
+        this.exchange.unlock()
+        this.sample.unlock()
+        this.tradeControl.unlock()
     }
 
     tradeSequence(type, qty) {
+        this.lock()
+        this.exchange.lock()
+        this.sample.lock()
+        this.tradeControl.lock()
         this.state = 'docking'
 
         const dock = this
@@ -69,6 +78,8 @@ class DockControl extends dna.FixedMesh {
     }
 
     use() {
+        if (this.locked) return
+
         if (this.on) {
             this.close()
             sfx.play('selectHi', .7)
@@ -81,13 +92,26 @@ class DockControl extends dna.FixedMesh {
         // TODO play switch sfx
     }
 
+    lock() {
+        this.locked = true
+    }
+
+    unlock() {
+        this.locked = false
+    }
+
     close() {
         this.on = false
         this.state = 'closed'
     }
 
     draw() {
-        const img = this.on? res.prop.switchOn : res.prop.switchOff
-        image(img, this.x - this.w/2, this.y - this.h/2, this.w, this.h)
+        if (this.state === 'docking') {
+            const img = (env.timer%1 < .5)? res.prop.switchOn : res.prop.switchOff
+            image(img, this.x - this.w/2, this.y - this.h/2, this.w, this.h)
+        } else {
+            const img = this.on? res.prop.switchOn : res.prop.switchOff
+            image(img, this.x - this.w/2, this.y - this.h/2, this.w, this.h)
+        }
     }
 }

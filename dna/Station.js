@@ -64,6 +64,7 @@ class Station {
     }
 
     evo(dt) {
+        if (env.state !== 'play') return
         env.timer += dt
         env.day += dt/env.tune.dayLength
 

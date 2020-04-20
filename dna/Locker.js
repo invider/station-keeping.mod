@@ -54,6 +54,14 @@ class Locker extends dna.FixedMesh {
         }
     }
 
+    lock() {
+        this.locked = true
+    }
+
+    unlock() {
+        this.locked = false
+    }
+
     first() {
         for (let i = 0; i < this.items.length; i++) {
             if (this.items[i]) return this.items[i].type
