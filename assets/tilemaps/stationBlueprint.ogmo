@@ -95,6 +95,44 @@
       ],
       "texture": "../../res/pod/chipX.png",
       "textureImage": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAJdJREFUOI1jYICCQ/uT/5NCwwATA4WAEcZYuOHIf3wK0YEi/3wGBgYGBhaYk+5/ZGB4cu0qUZrPnb/KsHb1XEYMFzy5dpVhyeIJcIUxsQUofJjYufNXGfKzvkK8gHBBIokumETYBdhcQnsXEGsAzAUoscDAwEBUIDIwMDDYOeKIBaq6ABugrQvOnSfOAGQXoAByciTFuREA/KSkn4MfXJYAAAAASUVORK5CYII="
+    },
+    {
+      "exportID": "34003740",
+      "name": "DockControl",
+      "limit": -1,
+      "size": {"x": 8, "y": 8},
+      "origin": {"x": 4, "y": 4},
+      "originAnchored": true,
+      "shape": {
+        "label": "Rectangle",
+        "points": [
+          {"x": -1, "y": -1},
+          {"x": 1, "y": -1},
+          {"x": -1, "y": 1},
+          {"x": 1, "y": -1},
+          {"x": -1, "y": 1},
+          {"x": 1, "y": 1}
+        ]
+      },
+      "color": "#ff0000ff",
+      "tileX": false,
+      "tileY": false,
+      "tileSize": {"x": 8, "y": 8},
+      "resizeableX": false,
+      "resizeableY": false,
+      "rotatable": false,
+      "rotationDegrees": 360,
+      "canFlipX": false,
+      "canFlipY": false,
+      "canSetColor": false,
+      "hasNodes": false,
+      "nodeLimit": 0,
+      "nodeDisplay": 0,
+      "nodeGhost": true,
+      "tags": [],
+      "values": [],
+      "texture": "../../res/prop/switchOff.png",
+      "textureImage": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAADZJREFUGJVjVFIw+c+AB7AwMDAwdAn9w5DY+/Ytw05GUQYmfLoZGBjooYAF5iC8CnYyiuJUAABXXQnxRGq7TAAAAABJRU5ErkJggg=="
     }
   ],
   "tilesets": [

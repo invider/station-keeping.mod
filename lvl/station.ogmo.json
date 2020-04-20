@@ -61,7 +61,7 @@
           "name": "Locker",
           "id": 0,
           "_eid": "30742908",
-          "x": 112,
+          "x": 128,
           "y": 48,
           "originX": 16,
           "originY": 16,
@@ -71,7 +71,7 @@
           "name": "Locker",
           "id": 2,
           "_eid": "30742908",
-          "x": 304,
+          "x": 296,
           "y": 48,
           "originX": 16,
           "originY": 16,
@@ -161,7 +161,7 @@
           "name": "Locker",
           "id": 12,
           "_eid": "30742908",
-          "x": 144,
+          "x": 160,
           "y": 48,
           "originX": 16,
           "originY": 16,
@@ -176,7 +176,9 @@
           "originX": 16,
           "originY": 16,
           "values": {"type": "sample", "subtype": "energy", "fill": 1}
-        }
+        },
+        {"name": "DockControl", "id": 15, "_eid": "34003740", "x": 312, "y": 48, "originX": 4, "originY": 4},
+        {"name": "DockControl", "id": 16, "_eid": "34003740", "x": 96, "y": 48, "originX": 4, "originY": 4}
       ]
     }
   ]

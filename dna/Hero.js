@@ -24,12 +24,17 @@ class Hero extends dna.DynamicMesh {
         else this.focus = this.itemMenu
     }
 
-    showItems() {
-        if (this.touched && this.touched instanceof dna.Locker) {
+    open() {
+        if (!this.touched) return
+
+        if (this.touched instanceof dna.Locker) {
             this.itemMenu.show()
             this.lockerMenu.keeper = this.touched
             this.lockerMenu.show()
             this.focus = this.itemMenu
+
+        } else if (this.touched instanceof dna.DockControl) {
+            this.touched.open()
         }
     }
 
@@ -48,7 +53,7 @@ class Hero extends dna.DynamicMesh {
             if (action <= 4) {
                 this.move[action] = true
             } else if (action === 5 || action === 7) {
-                this.showItems()
+                this.open()
             }
         }
     }

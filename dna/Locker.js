@@ -13,7 +13,7 @@ const df = {
 class Locker extends dna.FixedMesh {
 
     constructor(st) {
-        super(augment(df, st))
+        super(supplement(st, df))
         this.items = []
         augment(this, df)
         augment(this, st)
