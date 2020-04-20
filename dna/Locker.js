@@ -26,6 +26,7 @@ class Locker extends dna.FixedMesh {
             this.items[i] = false
             qty ++
         }
+
         return qty
     }
 

@@ -48,11 +48,12 @@ class DockControl extends dna.FixedMesh {
 
     trade(type, qty) {
         // TODO distribute goods on the market supply
-        this.exchange.empty()
+        const shipped = this.exchange.empty()
         this.exchange.populate(type, qty)
+        env.score.shipped += shipped
+        env.score.loaded += qty
         this.exchange.blink()
         this.close()
-        log('trade is done')
     }
 
     tradeSequence(type, qty) {

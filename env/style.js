@@ -2,7 +2,8 @@ const style = {
     background: "#080512",
 
     font: '32px coolville',
-    titleFont: '48px pixel-operator-mono8-bold',
+    //titleFont: '48px pixel-operator-mono8-bold',
+    titleFont: '64px coolville',
 
     blinkTime: 5,
 

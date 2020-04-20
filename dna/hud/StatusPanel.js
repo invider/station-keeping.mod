@@ -96,14 +96,29 @@ class StatusPanel {
 
     drawGameOver() {
         fill('#252525D0')
-        rect(0, ry(.4), rx(1), ry(.2))
+        rect(0, ry(.5)-150, rx(1), 300)
+
+        const x = rx(.5)
+        let y = ry(.5) - 80
 
         baseMiddle()
         alignCenter()
         font(env.style.titleFont)
         fill(env.style.color.fuel)
 
-        text('Game Over', rx(.5), ry(.5))
+        text('Game Over', x, y)
+
+        font(env.style.font)
+        fill(env.style.color.life)
+
+        y += 75
+        text('Days in Orbit: ' + floor(env.day), x, y)
+        y += 28
+        text('Docking Ops: ' + env.score.dockingOps, x, y)
+        y += 28
+        text('Cargo Loaded: ' + env.score.loaded, x, y)
+        y += 28
+        text('Cargo Shipped: ' + env.score.shipped, x, y)
     }
 
     draw() {

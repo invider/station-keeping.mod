@@ -38,6 +38,7 @@ class Ship {
         this.state = 'trading'
         this.x = this.targetX
         this.timer = env.tune.stayDocked = 5
+        env.score.dockingOps ++
         sfx.play('burn1', 1)
     }
 
