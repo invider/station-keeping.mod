@@ -42,6 +42,7 @@ class Ship {
                 } else if (this.dx > 0 && this.x > this.targetX) {
                     this.x = this.targetX
                     this.state = 'trading'
+                    sfx.play('arrived', 1)
                 }
                 break
 
@@ -50,6 +51,7 @@ class Ship {
                 if (this.timer < 0) {
                     this.onDocked()
                     this.state = 'outbound'
+                    sfx.play('consume', 1)
                 }
                 break
 

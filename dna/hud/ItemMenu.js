@@ -28,25 +28,32 @@ class ItemMenu {
     left() {
         this.selected --
         if (this.selected < 0) this.selected = this.cells - 1
+        sfx.play('preselect', .6)
     }
 
     right() {
         this.selected ++
         if (this.selected >= this.cells) this.selected = 0
+        sfx.play('preselect', .6)
     }
 
     up() {
-        if (!this.locker) this.target.swipeFocus()
+        if (!this.locker) {
+            this.target.swipeFocus()
+            sfx.play('preselect', .6)
+        }
     }
 
     down() {
-        if (this.locker) this.target.swipeFocus()
+        if (this.locker) {
+            this.target.swipeFocus()
+            sfx.play('preselect', .6)
+        }
     }
 
     move() {
         const pod = this.getSelected()
         if (!pod) {
-            // TODO cancel sfx
             this.target.hideItems()
         }
 
@@ -57,6 +64,9 @@ class ItemMenu {
             // got something to move
             if (this.receiver.push(pod)) {
                 this.keeper.items[this.selected] = false
+                sfx.play('use', .8)
+            } else {
+                sfx.play('beep', .6)
             }
         }
     }
@@ -144,5 +154,6 @@ class ItemMenu {
     show() {
         this.hidden = false
         this.selected = 0
+        sfx.play('open', .6)
     }
 }

@@ -43,6 +43,7 @@ class Hero extends dna.DynamicMesh {
         this.itemMenu.hide()
         this.lockerMenu.hide()
         this.focus = false
+        sfx.play('close', .6)
     }
 
     activate(action) {

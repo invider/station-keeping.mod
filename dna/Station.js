@@ -29,7 +29,7 @@ class Station {
         if (!locker) return
 
         if (locker.extractResource()) {
-            log('recharging ' + type)
+            sfx.play('consume', 1)
             this.charger[type] = UNIT
         }
     }

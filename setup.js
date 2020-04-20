@@ -1,5 +1,6 @@
 function setup() {
     lab.background = false
+    lib.gen.sfx()
 
     lib.gen.camera()
     trap('start')
