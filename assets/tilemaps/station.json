@@ -165,7 +165,7 @@
           "y": 56,
           "originX": 16,
           "originY": 16,
-          "values": {"type": "sample", "subtype": "energy", "fill": 1, "port": 2}
+          "values": {"type": "sample", "subtype": "life", "fill": 1, "port": 2}
         },
         {
           "name": "DockControl",

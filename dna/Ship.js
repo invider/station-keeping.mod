@@ -1,6 +1,5 @@
 const TARGETY = 48
-const SHIFTX1 = 32
-const SHIFTX2 = 98
+const SHIFTX = 172
 
 let id = 0
 const df = {
@@ -16,13 +15,15 @@ class Ship {
         augment(this, df)
         augment(this, st)
 
+        const axis = lab.cam.shell.x + lab.cam.shell.w/2
+
         this.y = TARGETY
         switch(this.dock.port) {
             case 1:
                 this.x = -this.w
                 this.startX = this.x
                 this.dx = 10
-                this.targetX = SHIFTX1
+                this.targetX = axis - SHIFTX
                 break
 
             case 2:
@@ -30,7 +31,7 @@ class Ship {
                 this.x = edge + this.w
                 this.startX = this.x
                 this.dx = -10
-                this.targetX = edge - SHIFTX2
+                this.targetX = axis + SHIFTX
                 break
         }
     }
