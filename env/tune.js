@@ -1,5 +1,7 @@
 const tune = {
     dayLength: 30,
+    alarmPeriod: 1,
+    buzzThreshold: .2,
 
     // platform dynamics
     gravity: 400,

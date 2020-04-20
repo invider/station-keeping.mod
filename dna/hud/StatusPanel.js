@@ -2,12 +2,36 @@ const BARS = 5
 
 const df = {
     showText: true,
+    alarmTimer: 0,
 }
 
 class StatusPanel {
 
     constructor() {
         augment(this, df)
+    }
+
+    alarm(dt) {
+        this.alarmTimer -= dt
+        if (this.alarmTimer < 0) {
+            sfx.play('buzz', .5)
+            this.alarmTimer = env.tune.alarmPeriod
+        }
+    }
+
+    evo(dt) {
+        if (env.state !== 'play') return
+
+        const st = lab.station
+
+        if (st.life === 0 || st.fuel === 0 || st.energy === 0) {
+            trap('gameover')
+        }
+
+        const bt = env.tune.buzzThreshold
+        if (st.life < bt || st.fuel < bt || st.energy < bt) {
+            this.alarm(dt)
+        }
     }
 
     drawBars(level, color, x, y) {
@@ -31,6 +55,8 @@ class StatusPanel {
             rect(x, y, env.style.bar.width, env.style.bar.height)
             y += env.style.bar.height + env.style.bar.gap
         }
+
+        return bars
     }
 
     drawStatus() {
@@ -78,15 +104,6 @@ class StatusPanel {
         fill(env.style.color.fuel)
 
         text('Game Over', rx(.5), ry(.5))
-    }
-
-    evo() {
-        if (env.state === 'play'
-                && (lab.station.life === 0
-                    || lab.station.fuel === 0
-                    || lab.station.energy === 0)) {
-            trap('gameover')
-        }
     }
 
     draw() {
