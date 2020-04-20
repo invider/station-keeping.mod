@@ -14,6 +14,7 @@ class Station {
         this.charger = {}
         this.storage = {}
         this.control = {}
+        this.port = []
         augment(this, df)
         augment(this, st)
     }

@@ -16,6 +16,16 @@ const tune = {
     // economy
     minResupply: 5,
     deltaResupply: 5,
+    minTradeDelay: 5,
+    deltaTradeDelay: 5,
+
+    types: [
+        'chip',
+        'life',
+        'fuel',
+        'energy',
+    ],
+    ultimatePrice: 7, // price for missing resources
 
     zoomSpeed: .1,
 }

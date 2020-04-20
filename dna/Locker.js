@@ -45,6 +45,18 @@ class Locker extends dna.FixedMesh {
         }
     }
 
+    value() {
+        let total = 0
+        const price = lab.stc.price
+        for (let i = 0; i < this.items.length; i++) {
+            if (this.items[i]) {
+                const type = this.items[i].type
+                total += price[type]
+            }
+        }
+        return total
+    }
+
     install() {
         if (!this.type) return
 

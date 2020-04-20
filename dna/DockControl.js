@@ -21,28 +21,49 @@ class DockControl extends dna.FixedMesh {
         const dock = this
         lab.cam._ls.forEach(e => {
             if (e instanceof dna.Locker) {
-                if (e.type === 'exchange' && e.group === dock.group) {
+                if (e.type === 'exchange' && e.port === dock.port) {
                     dock.exchange = e
-                } else if (e.type === 'sample' && e.group === dock.group) {
+                } else if (e.type === 'sample' && e.port === dock.port) {
                     dock.sample = e
                 }
             }
         })
+        lab.station.port[this.port] = this
     }
 
-    trade() {
-        const sample = this.sample.first()
+    type() {
+        return this.sample.first()
+    }
+
+    qty() {
+        return 3
+    }
+
+    value() {
+        return this.exchange.value()
+    }
+
+    trade(type, qty) {
+        // TODO distribute goods on the market supply
         this.exchange.empty()
-        if (sample) this.exchange.populate(sample, 5)
+        this.exchange.populate(type, qty)
+        this.close()
     }
 
     open() {
-        this.on = !this.on
         if (this.on) {
-            this.trade()
-            trap('trade')
+            this.close()
+
+        } else {
+            this.on = true
+            this.state = 'open'
         }
         // TODO play switch sfx
+    }
+
+    close() {
+        this.on = false
+        this.state = 'closed'
     }
 
     draw() {

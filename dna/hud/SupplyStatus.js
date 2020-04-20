@@ -1,3 +1,7 @@
+function fmt(v) {
+    return ' - $' + round(v*100)/100
+}
+
 class SupplyStatus {
     draw() {
         const stc = lab.stc
@@ -19,18 +23,22 @@ class SupplyStatus {
 
         y += dy
         fill(env.style.color.energy)
-        text('energy: ' + stc.supply.energy, x, y)
+        text('energy: ' + stc.supply.energy
+            + fmt(stc.price.energy), x, y)
 
         y += dy
         fill(env.style.color.fuel)
-        text('fuel: ' + stc.supply.fuel, x, y)
+        text('fuel: ' + stc.supply.fuel
+            + fmt(stc.price.fuel), x, y)
 
         y += dy
         fill(env.style.color.life)
-        text('life: ' + stc.supply.life, x, y)
+        text('life: ' + stc.supply.life
+            + fmt(stc.price.life), x, y)
 
         y += dy
         fill(env.style.color.life)
-        text('chips: ' + stc.supply.chip, x, y)
+        text('chips: ' + stc.supply.chip
+            + fmt(stc.price.chip), x, y)
     }
 }

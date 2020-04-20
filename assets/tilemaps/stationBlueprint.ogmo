@@ -91,7 +91,8 @@
       "values": [
         {"name": "type", "definition": "String", "defaults": "free", "maxLength": 0, "trimWhitespace": true},
         {"name": "subtype", "definition": "String", "defaults": "", "maxLength": 0, "trimWhitespace": true},
-        {"name": "fill", "definition": "Integer", "defaults": 0, "bounded": false, "min": 0, "max": 100}
+        {"name": "fill", "definition": "Integer", "defaults": 0, "bounded": false, "min": 0, "max": 100},
+        {"name": "port", "definition": "Integer", "defaults": 0, "bounded": false, "min": 0, "max": 100}
       ],
       "texture": "../../res/prop/locker.png",
       "textureImage": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAgCAYAAAAbifjMAAAAAXNSR0IArs4c6QAAAuZJREFUSImllc9rY1UUxz/n5r6b5KWTH6TORiKhoEYiZNOFC3ezGRwGLHRAKTMbHQS3XXfdP0SEARfiorqatZtuFHTEcWq1g7Ntkkmb9+4vF5mkSRux0x64PDic7+ece+5998jHnz6IAD//+CvnrdPrXvD99tMvABwc7guAnopvb94lz3JEKbzz1JuNC2KAtXffdqLkxd4j4sHhvshaez3e3rxLY7VJY7WJEoX3DlGKWqO+FDI47nP49NnR3qNvW7rT6yKiqNbrVFZWEBFECUqppWKAar1GYkxrtoViuYRONAVdQET+U7jMFtK8rvgC4HWt0+teD7BQQbVeux7g2hVcGzA47gOwu73D7vbOhcB5/zR2ATA87rO7vcPjjQGPNwYLkPP+4Txg+nMM+oNLlz0fqwFcbi8tPm8awFqLs1eD6E6vi7WW09HJlQAKJpfIWXd1AMCb7dalRd55vPOLgGqtemlAohV5lmFzO2kiTBq5tfURt77+HoDPH27OBA/u3+HWV3sAPPziHiNK9I8HOPsKEEKglJaRtM3Wl5/hvSekJUIIeJtjbr7Fxv17BO9xpQaVROOfvzirQClFWqmQmIRymnIyGlEoaGIIJMUSteYq6Y0qBV3AO8ewP0TrhH/+fj63hdxSTsvEGEkrFWKMsxfKFA2maAje47XmBoIpGt55/72zJupEE+NZo5Y9b6pQQGvNeDzGWgsiKJtbXG4JPqC1hkiMcR615BSShBgCp6MRKjEJIQZM0eCDj7xKHOMiJ8Y4W3mWkY0zrHWoPM/JxxlZliEihBAWsoUQ4rwvxggiiFIIoA6ePEWUisQY8ywjxohzDu88Ns+js47Jsjg3+SbGYEyCKZrJKax/+IE8e/K7bd58Q2xuC3NTSU5ejqIohVKKxCQkxpCPxyBy9Ncff7YEYK29Hu98snE0HVcvB8NpvYgoRAnpSgWA8ckpInL0wzfftQ4O98/Oaq29Hju97mx8/59Nx/u/C0Zaxzn4Z1IAAAAASUVORK5CYII="
@@ -130,7 +131,9 @@
       "nodeDisplay": 0,
       "nodeGhost": true,
       "tags": [],
-      "values": [],
+      "values": [
+        {"name": "port", "definition": "Integer", "defaults": 0, "bounded": false, "min": 0, "max": 100}
+      ],
       "texture": "../../res/prop/switchOff.png",
       "textureImage": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAAXNSR0IArs4c6QAAADZJREFUGJVjVFIw+c+AB7AwMDAwdAn9w5DY+/Ytw05GUQYmfLoZGBjooYAF5iC8CnYyiuJUAABXXQnxRGq7TAAAAABJRU5ErkJggg=="
     }
