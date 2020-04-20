@@ -15,10 +15,10 @@ class FixedMesh {
     }
 
     testRect(t) {
-        return (t.x+t.w >= this.x-this.w/2
-            && t.x <= this.x+this.w/2
-            && t.y+t.h >= this.y-this.h/2
-            && t.y <= this.y+this.h/2)
+        return (t.x+t.w/2 >= this.x-this.w/2
+            && t.x-t.w/2 <= this.x+this.w/2
+            && t.y+t.h/2 >= this.y-this.h/2
+            && t.y-t.h/2 <= this.y+this.h/2)
     }
 
     draw() {

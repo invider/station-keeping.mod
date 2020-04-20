@@ -97,11 +97,14 @@ class Hero extends dna.DynamicMesh {
 
         if (this.debug) {
             super.draw()
-            fill('#ffff00')
-            font('24px moon')
-            baseBottom()
-            alignCenter()
-            text('#' + this.action, this.x, this.y - this.h/2)
+
+            if (this.touched) {
+                fill('#ffff00')
+                font('12px coolville')
+                baseBottom()
+                alignCenter()
+                text('#' + this.touched.name, this.x, this.y - this.h/2)
+            }
         }
     }
 }
