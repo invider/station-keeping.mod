@@ -19,6 +19,7 @@ const style = {
         life: hsl(.55, .45, .55),
         fuel: hsl(.01, .55, .45),
         energy: hsl(.18, .55, .55),
+        any: hsl(.7, .05, .9),
     },
 
     locker: {

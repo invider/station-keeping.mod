@@ -26,6 +26,9 @@ class DockControl extends dna.FixedMesh {
                 } else if (e.type === 'sample' && e.port === dock.port) {
                     dock.sample = e
                 }
+            } else if (e instanceof dna.TradeControl && e.port === dock.port) {
+                dock.tradeControl = e
+                e.dock = dock
             }
         })
         lab.station.port[this.port] = this
@@ -36,7 +39,7 @@ class DockControl extends dna.FixedMesh {
     }
 
     qty() {
-        return 1
+        return this.tradeControl.value()
     }
 
     value() {

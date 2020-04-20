@@ -33,7 +33,8 @@ class Hero extends dna.DynamicMesh {
             this.lockerMenu.show()
             this.focus = this.itemMenu
 
-        } else if (this.touched instanceof dna.DockControl) {
+        } else if (this.touched instanceof dna.DockControl
+                || this.touched instanceof dna.TradeControl) {
             this.touched.open()
         }
     }
