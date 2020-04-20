@@ -37,7 +37,7 @@ class SupplyStatus {
             + fmt(stc.price.life), x, y)
 
         y += dy
-        fill(env.style.color.life)
+        fill(env.style.color.chip)
         text('chips: ' + stc.supply.chip
             + fmt(stc.price.chip), x, y)
     }

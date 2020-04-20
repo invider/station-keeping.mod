@@ -15,8 +15,17 @@ const style = {
 
     color: {
         day: hsl(.12, .45, .45),
+        chip: hsl(.9, .5, .55),
         life: hsl(.55, .45, .55),
         fuel: hsl(.01, .55, .45),
         energy: hsl(.18, .55, .55),
     },
+
+    locker: {
+        indicator: {
+            width: 2,
+            height: 4,
+            gap: 1,
+        }
+    }
 }

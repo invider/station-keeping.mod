@@ -45,6 +45,14 @@ class Locker extends dna.FixedMesh {
         }
     }
 
+    qty() {
+        let total = 0
+        for (let i = 0; i < this.items.length; i++) {
+            if (this.items[i]) total ++
+        }
+        return total
+    }
+
     value() {
         let total = 0
         const price = lab.stc.price
@@ -87,7 +95,32 @@ class Locker extends dna.FixedMesh {
         return false
     }
 
+    drawIndicator() {
+        const qty = this.qty()
+        const bw = env.style.locker.indicator.width
+        const bh = env.style.locker.indicator.height
+        const bg = env.style.locker.indicator.gap
+        const w = this.capacity*bw + (qty-1)*bg
+
+        let x = this.x - w/2
+        let y = this.y - this.h/2 - bh - 4*bg
+
+        lineWidth(.5)
+        stroke(.5, 0, .2)
+        rect(x-bg, y-bg, w+2*bg, bh+2*bg)
+
+        for (let i = 0; i < this.items.length; i++) {
+            const item = this.items[i]
+            if (item) {
+                fill(env.style.color[item.type])
+                rect(x, y, bw, bh)
+                x += bw + bg
+            }
+        }
+    }
+
     draw() {
         image(res.prop.locker, this.x - this.w/2, this.y - this.h/2, this.w, this.h)
+        this.drawIndicator()
     }
 }
