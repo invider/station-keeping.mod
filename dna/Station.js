@@ -57,7 +57,7 @@ class Station {
         } else {
             this[type] = max(this[type] - volume, 0)
             
-            if (!this.charger[type]) {
+            if (!this.charger[type] && chips >= env.tune.chipsToRecharge) {
                 if (this[type] < .7) this.recharge(type)
             }
         }
