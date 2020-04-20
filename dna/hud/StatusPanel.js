@@ -55,16 +55,16 @@ class StatusPanel {
             let dy = -32
             x = rx(1)
 
+            fill(env.style.color.life)
+            text('life support: ' + round(st.life * 100) + '%', x, y)
+
+            y += dy
             fill(env.style.color.energy)
             text('energy: ' + round(st.energy * 100) + '%', x, y)
 
             y += dy
             fill(env.style.color.fuel)
             text('fuel: ' + round(st.fuel * 100) + '%', x, y)
-
-            y += dy
-            fill(env.style.color.life)
-            text('life: ' + round(st.life * 100) + '%', x, y)
         }
     }
 
@@ -81,7 +81,12 @@ class StatusPanel {
     }
 
     evo() {
-        if (env.state === 'play' && lab.station.life === 0) trap('gameover')
+        if (env.state === 'play'
+                && (lab.station.life === 0
+                    || lab.station.fuel === 0
+                    || lab.station.energy === 0)) {
+            trap('gameover')
+        }
     }
 
     draw() {
