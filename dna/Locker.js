@@ -19,6 +19,15 @@ class Locker extends dna.FixedMesh {
         augment(this, st)
     }
 
+    empty() {
+        let qty = 0
+        for (let i = 0; i < this.items.length; i++) {
+            this.items[i] = false
+            qty ++
+        }
+        return qty
+    }
+
     populate(type, qty) {
         let i = 0
         while(i < this.capacity && qty > 0) {
@@ -27,6 +36,12 @@ class Locker extends dna.FixedMesh {
                 qty--
             }
             i++
+        }
+    }
+
+    first() {
+        for (let i = 0; i < this.items.length; i++) {
+            if (this.items[i]) return this.items[i].type
         }
     }
 
