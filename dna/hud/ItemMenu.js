@@ -128,11 +128,17 @@ class ItemMenu {
 
         for (let i = 0; i < this.cells; i++) {
 
-            fill(.1, .05, .2)
+            fill(env.style.color.panel)
             rect(x, y, this.tw, this.th)
+
             if (focused && i === this.selected) {
+                //stroke(.25, .5, .5)
                 lineWidth(1)
-                stroke(.25, .5, .5)
+                stroke(env.style.color.selection)
+                rect(x, y, this.tw, this.th)
+            } else {
+                lineWidth(1)
+                stroke(env.style.color.boundary)
                 rect(x, y, this.tw, this.th)
             }
 
