@@ -84,7 +84,8 @@ class SpaceTrafficControl {
         }
 
         log('seems to be good! Initiating docking')
-        port.trade(type, qty)
+        //port.trade(type, qty)
+        port.tradeSequence(type, qty)
     }
 
     trade() {

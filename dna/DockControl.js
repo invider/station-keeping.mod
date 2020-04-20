@@ -36,7 +36,7 @@ class DockControl extends dna.FixedMesh {
     }
 
     qty() {
-        return 3
+        return 1
     }
 
     value() {
@@ -48,6 +48,19 @@ class DockControl extends dna.FixedMesh {
         this.exchange.empty()
         this.exchange.populate(type, qty)
         this.close()
+        log('trade is done')
+    }
+
+    tradeSequence(type, qty) {
+        this.state = 'docking'
+
+        const dock = this
+        lab.cam.spawn(dna.Ship, {
+            dock: this,
+            onDocked: function() {
+                dock.trade(type, qty)
+            }
+        })
     }
 
     open() {
