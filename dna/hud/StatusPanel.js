@@ -68,15 +68,6 @@ class StatusPanel {
         }
     }
 
-    drawDay() {
-        baseTop()
-        alignLeft()
-        font(env.style.font)
-        fill(env.style.color.day)
-
-        text('Day ' + floor(env.day), env.style.edge, env.style.edge)
-    }
-
     drawGameOver() {
         fill('#252525D0')
         rect(0, ry(.4), rx(1), ry(.2))
@@ -94,9 +85,7 @@ class StatusPanel {
     }
 
     draw() {
-        this.drawDay()
         this.drawStatus()
-
         if (env.state === 'gameover') this.drawGameOver()
     }
 }
