@@ -35,15 +35,23 @@ class Station {
     }
 
     consume(type, volume) {
-        if (this.charger[type]) {
+        let chips = this.control[type].numberOf('chip')
+        if (this.charger[type] && chips >= env.tune.chipsToRecharge) {
             const capacity = UNIT - this[type]
             const charge = min(volume, capacity)
             this[type] = min(this[type] + charge, UNIT)
             this.charger[type] -= volume + charge // consumption + charge
-            if (this.charger[type] < 0) this.charger[type] = 0
+
+            if (this.charger[type] < 0) {
+                this.charger[type] = 0
+            }
+
         } else {
             this[type] = max(this[type] - volume, 0)
-            if (this[type] < .7) this.recharge(type)
+            
+            if (!this.charger[type]) {
+                if (this[type] < .7) this.recharge(type)
+            }
         }
     }
 

@@ -17,6 +17,7 @@ const tune = {
         fuel:   .01,
         energy: .001,
     },
+    chipsToRecharge: 4,
 
     // economy
     minResupply: 5,
