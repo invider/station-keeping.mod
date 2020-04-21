@@ -13,9 +13,9 @@ const tune = {
     // systems
     maxStorage: 7,
     consume: {
-        life:   .005,
-        fuel:   .005,
-        energy: .002,
+        life:   .004,
+        fuel:   .007,
+        energy: .003,
     },
     chipsToRecharge: 4,
     chipBurnRate: .001,

@@ -17,6 +17,7 @@ class Hero extends dna.DynamicMesh {
 
     init() {
         lab.station.registerHero(this)
+        lib.vfx.teleport(this.x, this.y)
     }
 
     swipeFocus() {
@@ -70,6 +71,8 @@ class Hero extends dna.DynamicMesh {
             // jump
             if (this.mv.y > -1 && this.mv.y < 1) {
                 this.mv.y = -env.tune.jump * this.h
+
+                lib.vfx.poof(this.x, this.y+5)
             }
         }
         if (this.move[2]) {
@@ -88,11 +91,14 @@ class Hero extends dna.DynamicMesh {
         blocky()
         translate(this.x, this.y)
 
+        let img = res.dude.dude[this.player]
+        if (!img) img = res.dude.dude[0]
+
         if (this.lastDir) {
             scale(-1, 1)
-            image(res.dude.dude[1], -R, -R, 2*R, 2*R)
+            image(img, -R, -R, 2*R, 2*R)
         } else {
-            image(res.dude.dude[1], -R, -R, 2*R, 2*R)
+            image(img, -R, -R, 2*R, 2*R)
         }
         restore()
 
