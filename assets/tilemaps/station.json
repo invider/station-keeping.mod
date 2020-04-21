@@ -71,7 +71,7 @@
           "name": "Locker",
           "id": 3,
           "_eid": "30742908",
-          "x": 96,
+          "x": 88,
           "y": 232,
           "originX": 16,
           "originY": 16,
@@ -101,7 +101,7 @@
           "name": "Locker",
           "id": 7,
           "_eid": "30742908",
-          "x": 128,
+          "x": 120,
           "y": 232,
           "originX": 16,
           "originY": 16,
@@ -301,7 +301,7 @@
           "name": "Locker",
           "id": 31,
           "_eid": "30742908",
-          "x": 152,
+          "x": 136,
           "y": 184,
           "originX": 8,
           "originY": 16,
@@ -321,11 +321,31 @@
           "name": "Locker",
           "id": 33,
           "_eid": "30742908",
-          "x": 256,
+          "x": 272,
           "y": 184,
           "originX": 8,
           "originY": 16,
           "values": {"type": "free", "subtype": "", "fill": 0, "port": 0}
+        },
+        {
+          "name": "Terminal",
+          "id": 34,
+          "_eid": "41765917",
+          "x": 72,
+          "y": 136,
+          "originX": 12,
+          "originY": 8,
+          "values": {"type": "", "title": ""}
+        },
+        {
+          "name": "Terminal",
+          "id": 35,
+          "_eid": "41765917",
+          "x": 112,
+          "y": 136,
+          "originX": 12,
+          "originY": 8,
+          "values": {"type": "", "title": ""}
         }
       ]
     }

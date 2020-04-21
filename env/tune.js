@@ -8,7 +8,7 @@ const tune = {
     jump: 5,
     slide: 100,
     maxSlide: 150,
-    friction: 15,
+    friction: 20,
 
     // systems
     maxStorage: 7,
