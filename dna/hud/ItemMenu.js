@@ -154,11 +154,13 @@ class ItemMenu {
     }
 
     hide() {
+        this.keeper.inUse = false
         this.hidden = true
     }
 
     show() {
         this.hidden = false
+        this.keeper.inUse = true
         this.selected = 0
         sfx.play('open', .4)
     }

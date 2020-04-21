@@ -144,7 +144,7 @@ class Locker extends dna.FixedMesh {
         const w = this.capacity*bw + (qty-1)*bg
 
         let x = this.x - w/2
-        let y = this.y - this.h/2 - bh - 4*bg
+        let y = this.y - this.h/2 - bh + bg
 
         lineWidth(.5)
         stroke(.5, 0, .2)
@@ -166,7 +166,8 @@ class Locker extends dna.FixedMesh {
     }
 
     draw() {
-        image(res.prop.locker, this.x - this.w/2, this.y - this.h/2, this.w, this.h)
+        const img = this.inUse? res.prop.lockerOpen : res.prop.locker
+        image(img, this.x - this.w/2, this.y - this.h/2, this.w, this.h)
         this.drawIndicator()
     }
 }
