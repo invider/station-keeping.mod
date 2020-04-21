@@ -1,5 +1,13 @@
 function fmt(v) {
-    return ' - $' + round(v*100)/100
+    const rv = floor(v)
+
+    let msg
+    if (rv < 1) msg = 'low'
+    else if (rv > 4) msg = 'extreme'
+    else if (rv > 1) msg = 'high'
+    else msg = 'regular'
+    //msg += ' - $' + round(v*100)/100
+    return msg
 }
 
 class SupplyStatus {
@@ -15,30 +23,22 @@ class SupplyStatus {
         let dy = 32
 
         fill(env.style.color.day)
-        text('Day ' + floor(env.day), env.style.edge, env.style.edge)
-
-        y += dy
-        y += dy
-        text('supply:', x, y)
+        text('Day ' + floor(env.day) + ' Demand', env.style.edge, env.style.edge)
 
         y += dy
         fill(env.style.color.energy)
-        text('energy: ' + stc.supply.energy
-            + fmt(stc.price.energy), x, y)
+        text('energy: ' + fmt(stc.price.energy), x, y)
 
         y += dy
         fill(env.style.color.fuel)
-        text('fuel: ' + stc.supply.fuel
-            + fmt(stc.price.fuel), x, y)
+        text('fuel: ' + fmt(stc.price.fuel), x, y)
 
         y += dy
         fill(env.style.color.life)
-        text('life: ' + stc.supply.life
-            + fmt(stc.price.life), x, y)
+        text('life: ' + fmt(stc.price.life), x, y)
 
         y += dy
         fill(env.style.color.chip)
-        text('chips: ' + stc.supply.chip
-            + fmt(stc.price.chip), x, y)
+        text('chips: ' + fmt(stc.price.chip), x, y)
     }
 }
