@@ -5,14 +5,17 @@ const maxSlide = 100
 
 const R = 8
 
+let number = 1
 class Hero extends dna.DynamicMesh {
 
     constructor(st) {
         super(st)
+        this.number = number++
         this.move = []
         this.items = []
         this.focus = false
         this.solid = false
+        this.jetpackHeat = 0
     }
 
     init() {
@@ -30,7 +33,7 @@ class Hero extends dna.DynamicMesh {
 
         if (this.touched instanceof dna.Locker && !this.touched.locked) {
             this.itemMenu.show()
-            this.lockerMenu.keeper = this.touched
+            this.lockerMenu.setKeeper(this.touched)
             this.lockerMenu.show()
             this.focus = this.itemMenu
 
@@ -66,13 +69,15 @@ class Hero extends dna.DynamicMesh {
 
     evo(dt) {
         this.touched = false
+        this.jetpackHeat -= dt
 
         if (this.move[1]) {
-            // jump
-            if (this.mv.y > -1 && this.mv.y < 1) {
+            // jetpack jump
+            if (this.jetpackHeat < 0) {
                 this.mv.y = -env.tune.jump * this.h
-
+                this.jetpackHeat = env.tune.jetpackFq
                 lib.vfx.poof(this.x, this.y+5)
+                sfx.play('burn4', .1)
             }
         }
         if (this.move[2]) {

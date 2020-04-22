@@ -18,6 +18,28 @@ class Locker extends dna.FixedMesh {
         this.capacity = env.tune.maxStorage
         augment(this, df)
         augment(this, st)
+
+        this.img = res.prop.locker
+        if (this.type === 'control') {
+            this.img = res.prop.lockerPink
+        } else if (this.type === 'exchange') {
+            this.img = res.prop.lockerGreen
+        } else if (this.type === 'sample') {
+            this.img = res.prop.lockerWhite
+            this.capacity = 1
+        } else if (this.type === 'storage') {
+            switch(this.subtype) {
+                case 'fuel':
+                    this.img = res.prop.lockerRed
+                    break
+                case 'life':
+                    this.img = res.prop.lockerBlue
+                    break
+                case 'energy':
+                    this.img = res.prop.lockerYellow
+                    break
+            }
+        }
     }
 
     empty() {
@@ -49,6 +71,7 @@ class Locker extends dna.FixedMesh {
                     item.type = 'broken'
                     sfx.play('deviceOff', 1)
                     this.blink()
+                    this.hint(`-1 chip`)
                 }
             }
         }
@@ -132,6 +155,11 @@ class Locker extends dna.FixedMesh {
         this.blinkTimer = env.style.blinkTime
     }
 
+    hint(msg) {
+        lib.tfx.hint(msg,
+            this.x, this.y+env.style.lockerHintDY)
+    }
+
     evo(dt) {
         this.blinkTimer -= dt
     }
@@ -166,7 +194,7 @@ class Locker extends dna.FixedMesh {
     }
 
     draw() {
-        const img = this.inUse? res.prop.lockerOpen : res.prop.locker
+        const img = this.inUse? res.prop.lockerOpen : this.img
         image(img, this.x - this.w/2, this.y - this.h/2, this.w, this.h)
         this.drawIndicator()
     }

@@ -1,6 +1,6 @@
 
 const EDGE = 20
-const STAR_FQ = 2
+const STAR_FQ = 5
 const METEOR_FQ = 0.5
 
 // star background

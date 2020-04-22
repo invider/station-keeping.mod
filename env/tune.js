@@ -4,8 +4,9 @@ const tune = {
     buzzThreshold: .2,
 
     // platform dynamics
-    gravity: 400,
+    gravity: 160,
     jump: 5,
+    jetpackFq: .3,
     slide: 100,
     maxSlide: 150,
     friction: 20,
@@ -34,7 +35,7 @@ const tune = {
         'fuel',
         'energy',
     ],
-    ultimatePrice: 5, // price for missing resources
+    ultimatePrice: 7, // price for missing resources
 
     zoomSpeed: .1,
 }

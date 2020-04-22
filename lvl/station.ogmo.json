@@ -85,7 +85,7 @@
           "y": 232,
           "originX": 16,
           "originY": 16,
-          "values": {"type": "storage", "subtype": "life", "fill": 5, "port": 0}
+          "values": {"type": "storage", "subtype": "life", "fill": 7, "port": 0}
         },
         {
           "name": "Locker",
@@ -105,7 +105,7 @@
           "y": 232,
           "originX": 16,
           "originY": 16,
-          "values": {"type": "storage", "subtype": "fuel", "fill": 3, "port": 0}
+          "values": {"type": "storage", "subtype": "fuel", "fill": 5, "port": 0}
         },
         {
           "name": "Locker",

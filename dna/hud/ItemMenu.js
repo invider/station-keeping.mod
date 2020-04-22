@@ -14,6 +14,11 @@ class ItemMenu {
         augment(this, st)
     }
 
+    setKeeper(keeper) {
+        this.keeper = keeper
+        this.cells = this.keeper.capacity + 1
+    }
+
     getSelected() {
         if (this.selected === this.cells - 1) return 'close'
         return this.keeper.items[this.selected]
@@ -55,6 +60,7 @@ class ItemMenu {
         const pod = this.getSelected()
         if (!pod) {
             this.target.hideItems()
+            return
         }
 
         if (pod === 'close') {

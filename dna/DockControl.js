@@ -59,6 +59,9 @@ class DockControl extends dna.FixedMesh {
         this.exchange.unlock()
         this.sample.unlock()
         this.tradeControl.unlock()
+
+        const msg = `+${qty} ${type}`
+        lib.tfx.hint(msg, this.x, this.y+env.style.dockHintDY)
     }
 
     tradeSequence(type, qty) {
@@ -67,6 +70,12 @@ class DockControl extends dna.FixedMesh {
         this.sample.lock()
         this.tradeControl.lock()
         this.state = 'docking'
+
+        setTimeout(() => {
+            const t = env.msg.resource[type]
+            const msg = `expecting shipment of ${qty} ${t}`
+            lib.tfx.hint(msg, this.x, this.y+env.style.dockHintDY)
+        }, 2000)
 
         const dock = this
         lab.cam.spawn(dna.Ship, {
@@ -85,11 +94,34 @@ class DockControl extends dna.FixedMesh {
             sfx.play('selectHi', .7)
 
         } else {
+            const type = this.type()
+            if (!type) {
+                sfx.play('cancel', .4)
+                return
+            }
+            const x = this.exchange.qty()
+            if (!x) {
+                sfx.play('cancel', .4)
+                return
+            }
+
             this.on = true
             this.state = 'open'
+
+            const qty = this.qty()
+            const t = env.msg.resource[type]
+            const msg = `trade ${x} pods for ${qty} ${t}`
+            const opt = {
+                dx: -10,
+            }
+            if (this.port === 2) {
+                opt.dx = 10
+            }
+            lib.tfx.hint(msg,
+                this.x, this.y+env.style.dockHintDY, opt)
+
             sfx.play('selectHi', .7)
         }
-        // TODO play switch sfx
     }
 
     lock() {

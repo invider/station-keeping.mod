@@ -4,6 +4,7 @@ const style = {
     font: '32px coolville',
     //titleFont: '48px pixel-operator-mono8-bold',
     titleFont: '64px coolville',
+    hintsFont: '12px coolville',
 
     blinkTime: 5,
 
@@ -36,5 +37,8 @@ const style = {
             height: 4,
             gap: 1,
         }
-    }
+    },
+
+    dockHintDY: -15,
+    lockerHintDY: -25,
 }

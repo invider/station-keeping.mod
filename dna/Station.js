@@ -32,6 +32,7 @@ class Station {
         if (locker.extractResource()) {
             this.charger[type] = UNIT
             locker.blink()
+            locker.hint(`-1 ${type}`)
             sfx.play('noisy', 1)
         }
     }

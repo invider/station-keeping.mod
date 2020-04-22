@@ -10,4 +10,6 @@ function gameover() {
     setTimeout(turnOff, 600)
     setTimeout(turnOff, 800)
     setTimeout(turnOff, 1000)
+
+    setTimeout(() => lib.tfx.roll(env.credits), 5000)
 }

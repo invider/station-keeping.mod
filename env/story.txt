@@ -1,0 +1,7 @@
+The station is low on energy
+Activate left docking port with red button
+It is already configured
+to accept 3 units of energy
+
+After docking procedures
+move energy pods to the yellow locker
