@@ -78,13 +78,15 @@ class SpaceTrafficControl {
         log('port offers: $' + portValue + ' of goods')
         log('port wants: $' + incomeValue + ' of ' + type + '(' + qty + ')')
 
-        if (supply < qty) {
-            log('not enough goods in orbit...')
-            return
-        }
-        if (incomeValue > portValue) {
-            log('offered value is too low...')
-            return
+        if (!env.endlessSupply) {
+            if (supply < qty) {
+                log('not enough goods in orbit...')
+                return
+            }
+            if (incomeValue > portValue) {
+                log('offered value is too low...')
+                return
+            }
         }
 
         log(`port #${port.port}: shipment of ${type}(${qty})`)
