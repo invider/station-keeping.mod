@@ -11,11 +11,15 @@ class SpaceTrafficControl {
 
     constructor() {
         augment(this, df)
+
+        this.gen = lib.math.createRandomGenerator()
+        this.gen.setSeed(57)
+
         this.supply = {
-            'chip': RND(env.tune.maxStorage),
-            'life': RND(env.tune.maxStorage),
-            'fuel': RND(env.tune.maxStorage),
-            'energy': RND(env.tune.maxStorage),
+            'chip': this.gen.rndi(env.tune.maxStorage),
+            'life': this.gen.rndi(env.tune.maxStorage),
+            'fuel': this.gen.rndi(env.tune.maxStorage),
+            'energy': this.gen.rndi(env.tune.maxStorage),
         }
         this.price = {}
         this.recalc()
@@ -48,12 +52,16 @@ class SpaceTrafficControl {
     }
 
     resupplyRandomResource() {
-        switch(RND(4)) {
-            case 0: this.supply.chip = RND(env.tune.maxStorage-2); break;
-            case 1: this.supply.life = RND(env.tune.maxStorage); break;
-            case 2: this.supply.fuel = RND(env.tune.maxStorage); break;
-            case 3: this.supply.energy = RND(env.tune.maxStorage-4); break;
+        const rndi = this.gen.rndi
+
+        switch(rndi(4)) {
+            case 0: this.supply.chip = rndi(env.tune.maxStorage-2); break;
+            case 1: this.supply.life = rndi(env.tune.maxStorage); break;
+            case 2: this.supply.fuel = rndi(env.tune.maxStorage); break;
+            case 3: this.supply.energy = rndi(env.tune.maxStorage-4); break;
         }
+
+        const s = this.supply
     }
 
     resupply() {
