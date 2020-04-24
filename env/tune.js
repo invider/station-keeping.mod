@@ -4,10 +4,10 @@ const tune = {
     buzzThreshold: .2,
 
     // platform dynamics
-    gravity: 100,
+    gravity: 120,
     jump: 5,
     jetpackFq: .3,
-    slide: 100,
+    slide: 150,
     maxSlide: 150,
     friction: 20,
 

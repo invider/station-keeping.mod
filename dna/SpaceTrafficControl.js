@@ -2,7 +2,6 @@ const df = {
     name: 'stc',
     nextTime: 0,
     tradeTimer: 0,
-    resupplyTimer: 0,
     lastOrbitResupply: 0,
     tradeTimer: 0,
 }
@@ -67,8 +66,6 @@ class SpaceTrafficControl {
     resupply() {
         for (let i = 0; i < 3; i++) this.resupplyRandomResource()
         this.recalc()
-
-        this.resupplyTimer = env.tune.dayLength
     }
 
     tradeWithPort(port) {

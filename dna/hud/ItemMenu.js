@@ -162,6 +162,7 @@ class ItemMenu {
     hide() {
         this.keeper.inUse = false
         this.hidden = true
+        if (this.keeper.onClose) this.keeper.onClose()
     }
 
     show() {

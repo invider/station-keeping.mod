@@ -5,6 +5,7 @@ const style = {
     //titleFont: '48px pixel-operator-mono8-bold',
     titleFont: '64px coolville',
     hintsFont: '12px coolville',
+    tagFont: '8px coolville',
 
     blinkTime: 5,
 

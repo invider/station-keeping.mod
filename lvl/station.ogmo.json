@@ -65,7 +65,7 @@
           "y": 56,
           "originX": 16,
           "originY": 16,
-          "values": {"type": "exchange", "subtype": "chip", "fill": 4, "port": 1, "tag": "DC1", "hint": "Dock 1 Cargo Locker"}
+          "values": {"type": "exchange", "subtype": "chip", "fill": 4, "port": 1, "tag": "XP", "hint": "Dock 1 Cargo Locker"}
         },
         {
           "name": "Locker",
@@ -75,7 +75,7 @@
           "y": 232,
           "originX": 16,
           "originY": 16,
-          "values": {"type": "control", "subtype": "fuel", "fill": 7, "port": 0, "tag": "PS", "hint": "Propulsion System Locker"}
+          "values": {"type": "control", "subtype": "fuel", "fill": 7, "port": 0, "tag": "FC", "hint": "Propulsion System Locker"}
         },
         {
           "name": "Locker",
@@ -95,7 +95,7 @@
           "y": 136,
           "originX": 16,
           "originY": 16,
-          "values": {"type": "free", "subtype": "fuel", "fill": 5, "port": 0, "tag": "A1", "hint": "Storage Locker"}
+          "values": {"type": "free", "subtype": "fuel", "fill": 5, "port": 0, "tag": "A2", "hint": "Storage Locker"}
         },
         {
           "name": "Locker",
@@ -145,7 +145,7 @@
           "y": 136,
           "originX": 16,
           "originY": 16,
-          "values": {"type": "free", "subtype": "life", "fill": 5, "port": 0, "tag": "A2", "hint": "Storage Locker"}
+          "values": {"type": "free", "subtype": "life", "fill": 5, "port": 0, "tag": "A1", "hint": "Storage Locker"}
         },
         {
           "name": "Locker",
@@ -155,7 +155,7 @@
           "y": 56,
           "originX": 16,
           "originY": 16,
-          "values": {"type": "sample", "subtype": "energy", "fill": 1, "port": 1, "tag": "DS1", "hint": "Dock 1 Sample Locker"}
+          "values": {"type": "sample", "subtype": "energy", "fill": 1, "port": 1, "tag": "XS", "hint": "Dock 1 Sample Locker"}
         },
         {
           "name": "Locker",
@@ -165,7 +165,7 @@
           "y": 56,
           "originX": 16,
           "originY": 16,
-          "values": {"type": "sample", "subtype": "life", "fill": 1, "port": 2, "tag": "DS2", "hint": "Dock 2 Sample Locker"}
+          "values": {"type": "sample", "subtype": "life", "fill": 1, "port": 2, "tag": "VS", "hint": "Dock 2 Sample Locker"}
         },
         {
           "name": "DockControl",
@@ -225,7 +225,7 @@
           "y": 184,
           "originX": 8,
           "originY": 16,
-          "values": {"type": "free", "subtype": "", "fill": 0, "port": 0, "tag": "L4", "hint": "Storage Locker"}
+          "values": {"type": "free", "subtype": "", "fill": 0, "port": 0, "tag": "C1", "hint": "Storage Locker"}
         },
         {
           "name": "Locker",
@@ -235,7 +235,7 @@
           "y": 184,
           "originX": 8,
           "originY": 16,
-          "values": {"type": "free", "subtype": "", "fill": 0, "port": 0, "tag": "L3", "hint": "Storage Locker"}
+          "values": {"type": "free", "subtype": "", "fill": 0, "port": 0, "tag": "C2", "hint": "Storage Locker"}
         },
         {
           "name": "Locker",
@@ -245,7 +245,7 @@
           "y": 184,
           "originX": 8,
           "originY": 16,
-          "values": {"type": "free", "subtype": "", "fill": 0, "port": 0, "tag": "R4", "hint": "Storage Locker"}
+          "values": {"type": "free", "subtype": "", "fill": 0, "port": 0, "tag": "D4", "hint": "Storage Locker"}
         },
         {
           "name": "Locker",
@@ -255,7 +255,7 @@
           "y": 184,
           "originX": 8,
           "originY": 16,
-          "values": {"type": "free", "subtype": "", "fill": 0, "port": 0, "tag": "R3", "hint": "Storage Locker"}
+          "values": {"type": "free", "subtype": "", "fill": 0, "port": 0, "tag": "D3", "hint": "Storage Locker"}
         },
         {
           "name": "Terminal",
@@ -285,7 +285,7 @@
           "y": 56,
           "originX": 8,
           "originY": 16,
-          "values": {"type": "exchange", "subtype": "fuel", "fill": 5, "port": 2, "tag": "DC2", "hint": "Dock 2 Cargo Locker"}
+          "values": {"type": "exchange", "subtype": "", "fill": 0, "port": 2, "tag": "VP", "hint": "Dock 2 Cargo Locker"}
         },
         {
           "name": "Locker",
@@ -295,7 +295,7 @@
           "y": 184,
           "originX": 8,
           "originY": 16,
-          "values": {"type": "free", "subtype": "", "fill": 0, "port": 0, "tag": "L2", "hint": "Storage Locker"}
+          "values": {"type": "free", "subtype": "", "fill": 0, "port": 0, "tag": "C3", "hint": "Storage Locker"}
         },
         {
           "name": "Locker",
@@ -305,7 +305,7 @@
           "y": 184,
           "originX": 8,
           "originY": 16,
-          "values": {"type": "free", "subtype": "", "fill": 0, "port": 0, "tag": "L1", "hint": "Storage Locker"}
+          "values": {"type": "free", "subtype": "", "fill": 0, "port": 0, "tag": "C4", "hint": "Storage Locker"}
         },
         {
           "name": "Locker",
@@ -315,7 +315,7 @@
           "y": 184,
           "originX": 8,
           "originY": 16,
-          "values": {"type": "free", "subtype": "", "fill": 0, "port": 0, "tag": "R2", "hint": "Storage Locker"}
+          "values": {"type": "free", "subtype": "", "fill": 0, "port": 0, "tag": "D2", "hint": "Storage Locker"}
         },
         {
           "name": "Locker",
@@ -325,7 +325,7 @@
           "y": 184,
           "originX": 8,
           "originY": 16,
-          "values": {"type": "free", "subtype": "", "fill": 0, "port": 0, "tag": "R1", "hint": "Storage Locker"}
+          "values": {"type": "free", "subtype": "", "fill": 0, "port": 0, "tag": "D1", "hint": "Storage Locker"}
         },
         {
           "name": "Terminal",

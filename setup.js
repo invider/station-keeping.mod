@@ -15,7 +15,6 @@ function setup() {
             _.enable()
         }
     })
-
     /*
     lab.spawn(dna.FixedMesh, {
         name: 'block',
