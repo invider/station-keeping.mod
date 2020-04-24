@@ -71,7 +71,7 @@ class Locker extends dna.FixedMesh {
                     item.type = 'broken'
                     sfx.play('deviceOff', 1)
                     this.blink()
-                    this.hint(`-1 chip`)
+                    this.showHint(`-1 chip`)
                 }
             }
         }
@@ -155,7 +155,7 @@ class Locker extends dna.FixedMesh {
         this.blinkTimer = env.style.blinkTime
     }
 
-    hint(msg) {
+    showHint(msg) {
         lib.tfx.hint(msg,
             this.x, this.y+env.style.lockerHintDY)
     }
