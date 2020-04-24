@@ -56,9 +56,9 @@ class DockControl extends dna.FixedMesh {
         this.close()
 
         this.unlock()
-        this.exchange.unlock()
-        this.sample.unlock()
-        this.tradeControl.unlock()
+        this.unlockPort()
+
+        if (this.onTrade) this.onTrade()
 
         const msg = `+${qty} ${type}`
         lib.tfx.hint(msg, this.x, this.y+env.style.dockHintDY)
@@ -66,9 +66,6 @@ class DockControl extends dna.FixedMesh {
 
     tradeSequence(type, qty) {
         this.lock()
-        this.exchange.lock()
-        this.sample.lock()
-        this.tradeControl.lock()
         this.state = 'docking'
 
         setTimeout(() => {
@@ -87,10 +84,14 @@ class DockControl extends dna.FixedMesh {
     }
 
     use() {
-        if (this.locked) return
+        if (this.locked) {
+            sfx.play('beep', .6)
+            return
+        }
 
         if (this.on) {
             this.close()
+            this.unlockPort()
             sfx.play('selectHi', .7)
 
         } else {
@@ -107,6 +108,8 @@ class DockControl extends dna.FixedMesh {
 
             this.on = true
             this.state = 'open'
+            this.lockPort()
+            if (this.onUse) this.onUse()
 
             const qty = this.qty()
             const t = env.msg.resource[type]
@@ -130,6 +133,18 @@ class DockControl extends dna.FixedMesh {
 
     unlock() {
         this.locked = false
+    }
+
+    lockPort() {
+        this.exchange.lock()
+        this.sample.lock()
+        this.tradeControl.lock()
+    }
+
+    unlockPort() {
+        this.exchange.unlock()
+        this.sample.unlock()
+        this.tradeControl.unlock()
     }
 
     close() {

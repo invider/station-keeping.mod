@@ -13,6 +13,7 @@ const tune = {
 
     // systems
     maxStorage: 7,
+    maxSupply: 15,
     consume: {
         life:   .004,
         fuel:   .007,

@@ -18,7 +18,10 @@ class TradeControl extends dna.FixedMesh {
     }
 
     use() {
-        if (this.locked) return
+        if (this.locked) {
+            sfx.play('beep', .6)
+            return
+        }
 
         this.qty ++
         if (this.qty > env.tune.maxStorage) {

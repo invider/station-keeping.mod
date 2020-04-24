@@ -31,11 +31,15 @@ class Hero extends dna.DynamicMesh {
     use() {
         if (!this.touched) return
 
-        if (this.touched instanceof dna.Locker && !this.touched.locked) {
-            this.itemMenu.show()
-            this.lockerMenu.setKeeper(this.touched)
-            this.lockerMenu.show()
-            this.focus = this.itemMenu
+        if (this.touched instanceof dna.Locker) {
+            if (!this.touched.locked) {
+                this.itemMenu.show()
+                this.lockerMenu.setKeeper(this.touched)
+                this.lockerMenu.show()
+                this.focus = this.itemMenu
+            } else {
+                sfx.play('beep', .6)
+            }
 
         } else if (this.touched.use) {
             this.touched.use()

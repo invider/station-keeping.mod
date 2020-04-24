@@ -1,4 +1,4 @@
-function fmt(v) {
+function fmt(v, q) {
     const rv = floor(v)
 
     let msg
@@ -7,7 +7,7 @@ function fmt(v) {
     else if (rv > 1) msg = 'high'
     else msg = 'regular'
     //msg += ' - $' + round(v*100)/100
-    return msg
+    return `${msg}[${q}]`
 }
 
 class SupplyStatus {
@@ -31,18 +31,18 @@ class SupplyStatus {
 
         y += dy
         fill(env.style.color.energy)
-        text('energy: ' + fmt(stc.price.energy), x, y)
+        text('energy: ' + fmt(stc.price.energy, stc.supply.energy), x, y)
 
         y += dy
         fill(env.style.color.fuel)
-        text('fuel: ' + fmt(stc.price.fuel), x, y)
+        text('fuel: ' + fmt(stc.price.fuel, stc.supply.fuel), x, y)
 
         y += dy
         fill(env.style.color.life)
-        text('life: ' + fmt(stc.price.life), x, y)
+        text('life: ' + fmt(stc.price.life, stc.supply.life), x, y)
 
         y += dy
         fill(env.style.color.chip)
-        text('chips: ' + fmt(stc.price.chip), x, y)
+        text('chips: ' + fmt(stc.price.chip, stc.supply.chip), x, y)
     }
 }

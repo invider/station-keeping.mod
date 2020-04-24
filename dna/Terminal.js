@@ -17,7 +17,10 @@ class Terminal extends dna.FixedMesh {
     }
 
     use() {
-        if (this.locked) return
+        if (this.locked) {
+            sfx.play('beep', .6)
+            return
+        }
 
         if (this.on) {
             this.close()

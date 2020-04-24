@@ -175,7 +175,7 @@
           "y": 56,
           "originX": 4,
           "originY": 4,
-          "values": {"port": 2}
+          "values": {"port": 2, "tag": "D2", "hint": "Dock 2 Control"}
         },
         {
           "name": "DockControl",
@@ -185,7 +185,7 @@
           "y": 56,
           "originX": 4,
           "originY": 4,
-          "values": {"port": 1}
+          "values": {"port": 1, "tag": "D1", "hint": "Dock 1 Control"}
         },
         {
           "name": "Locker",
@@ -205,7 +205,7 @@
           "y": 56,
           "originX": 4,
           "originY": 12,
-          "values": {"port": 2}
+          "values": {"port": 2, "tag": "DN2", "hint": "Dock 2 Trade Control"}
         },
         {
           "name": "TradeControl",
@@ -215,7 +215,7 @@
           "y": 56,
           "originX": 4,
           "originY": 12,
-          "values": {"port": 1}
+          "values": {"port": 1, "tag": "DN1", "hint": "Dock 1 Trade Control"}
         },
         {
           "name": "Locker",
@@ -265,7 +265,7 @@
           "y": 136,
           "originX": 12,
           "originY": 8,
-          "values": {"type": "station", "title": ""}
+          "values": {"type": "station", "title": "", "tag": "", "hint": ""}
         },
         {
           "name": "Terminal",
@@ -275,7 +275,7 @@
           "y": 136,
           "originX": 12,
           "originY": 8,
-          "values": {"type": "", "title": ""}
+          "values": {"type": "", "title": "", "tag": "", "hint": ""}
         },
         {
           "name": "Locker",
@@ -335,7 +335,7 @@
           "y": 136,
           "originX": 12,
           "originY": 8,
-          "values": {"type": "", "title": ""}
+          "values": {"type": "", "title": "", "tag": "", "hint": ""}
         },
         {
           "name": "Terminal",
@@ -345,7 +345,7 @@
           "y": 136,
           "originX": 12,
           "originY": 8,
-          "values": {"type": "", "title": ""}
+          "values": {"type": "", "title": "", "tag": "", "hint": ""}
         },
         {
           "name": "Locker",
