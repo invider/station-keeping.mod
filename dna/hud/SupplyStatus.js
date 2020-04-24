@@ -23,7 +23,11 @@ class SupplyStatus {
         let dy = 32
 
         fill(env.style.color.day)
-        text('Day ' + floor(env.day) + ' Demand', env.style.edge, env.style.edge)
+
+        const orbit = floor(env.day)
+        const sector = floor((env.day % 1) * 10)
+        text(`Orbit ${orbit}.${sector} Demand`,
+                        env.style.edge, env.style.edge)
 
         y += dy
         fill(env.style.color.energy)

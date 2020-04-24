@@ -1,5 +1,5 @@
 const tune = {
-    dayLength: 30,
+    dayLength: 20,
     alarmPeriod: 1,
     buzzThreshold: .2,
 
@@ -24,8 +24,6 @@ const tune = {
     stayDocked: 5,
 
     // economy
-    minResupply: 5,
-    deltaResupply: 5,
     minTradeDelay: 5,
     deltaTradeDelay: 5,
 

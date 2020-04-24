@@ -3,6 +3,7 @@ const df = {
     nextTime: 0,
     tradeTimer: 0,
     resupplyTimer: 0,
+    lastOrbitResupply: 0,
     tradeTimer: 0,
 }
 
@@ -46,16 +47,20 @@ class SpaceTrafficControl {
         }
     }
 
-    resupply() {
+    resupplyRandomResource() {
         switch(RND(4)) {
             case 0: this.supply.chip = RND(env.tune.maxStorage-2); break;
             case 1: this.supply.life = RND(env.tune.maxStorage); break;
             case 2: this.supply.fuel = RND(env.tune.maxStorage); break;
             case 3: this.supply.energy = RND(env.tune.maxStorage-4); break;
         }
+    }
+
+    resupply() {
+        for (let i = 0; i < 3; i++) this.resupplyRandomResource()
         this.recalc()
 
-        this.resupplyTimer = env.tune.minResupply + RND(env.tune.deltaResupply)
+        this.resupplyTimer = env.tune.dayLength
     }
 
     tradeWithPort(port) {
@@ -104,18 +109,20 @@ class SpaceTrafficControl {
     }
 
     control() {
-        this.resupplyTimer --
-        if (this.resupplyTimer < 0) this.resupply()
-
         this.tradeTimer --
         if (this.tradeTimer < 0) this.trade()
     }
 
     evo(dt) {
+        const orbit = floor(env.day)
+        if (orbit > this.lastOrbitResupply) {
+            this.resupply()
+            this.lastOrbitResupply = orbit
+        }
+
         if (env.timer > this.nextTime) {
             this.nextTime = env.timer + 1
             this.control()
         }
     }
-
 }

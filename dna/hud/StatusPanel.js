@@ -112,7 +112,7 @@ class StatusPanel {
         fill(env.style.color.life)
 
         y += 75
-        text('Days in Orbit: ' + floor(env.day), x, y)
+        text('Orbits: ' + floor(env.day), x, y)
         y += 28
         text('Docking Ops: ' + env.score.dockingOps, x, y)
         y += 28
