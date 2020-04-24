@@ -7,7 +7,9 @@ function openEnergyLocker() {
             this.onClose = false
             trap('tutorEnd')
         }
+        env.status = false
     }
+    env.status = 'move energy cells to ES energy storage locker'
 }
 
 function tutor2() {
@@ -24,5 +26,5 @@ function tutor2() {
             openEnergyLocker()
         }
     }
-
+    env.status = 'pick up all energy cells from XP locker'
 }

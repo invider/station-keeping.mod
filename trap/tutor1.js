@@ -15,4 +15,6 @@ function tutor1() {
         this.onUse = false
         trap('tutor2')
     }
+
+    env.status = 'activate left docking port'
 }
