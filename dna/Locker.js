@@ -151,8 +151,12 @@ class Locker extends dna.FixedMesh {
         return false
     }
 
-    blink() {
-        this.blinkTimer = env.style.blinkTime
+    blink(time) {
+        this.blinkTimer = time || env.style.blinkTime
+    }
+
+    noblink() {
+        this.blinkTimer = -1
     }
 
     showHint(msg) {
