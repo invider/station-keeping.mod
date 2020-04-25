@@ -4,7 +4,9 @@ function onChipSwap() {
         sfx.play('beep', .5)
         return
     }
-    trap('tutorEnd')
+    this.lock()
+    this.noblink()
+    trap('tutor4')
 }
 
 function onChipPickup() {
