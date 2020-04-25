@@ -22,6 +22,9 @@ class Locker extends dna.FixedMesh {
         this.img = res.prop.locker
         if (this.type === 'control') {
             this.img = res.prop.lockerPink
+            this.guard = function(pod) {
+                return pod === 'chip' || pod === 'broken'
+            }
         } else if (this.type === 'exchange') {
             this.img = res.prop.lockerGreen
         } else if (this.type === 'sample') {
@@ -31,12 +34,15 @@ class Locker extends dna.FixedMesh {
             switch(this.subtype) {
                 case 'fuel':
                     this.img = res.prop.lockerRed
+                    this.guard = ((pod) => pod === 'fuel')
                     break
                 case 'life':
                     this.img = res.prop.lockerBlue
+                    this.guard = ((pod) => pod === 'life')
                     break
                 case 'energy':
                     this.img = res.prop.lockerYellow
+                    this.guard = ((pod) => pod === 'energy')
                     break
             }
         }

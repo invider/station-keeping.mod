@@ -84,6 +84,9 @@ class ItemMenu {
     }
 
     push(pod) {
+        if (this.keeper.guard && !this.keeper.guard(pod.type)) {
+            return false
+        }
         // find an empty slot
         for (let i = 0; i < this.cells-1; i++) {
             const exist = this.keeper.items[i]
