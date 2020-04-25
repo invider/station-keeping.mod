@@ -12,6 +12,10 @@ function handleControl(e) {
             else lab.pause()
             break
 
+        case 'Escape':
+            trap('tutorCancel')
+            break
+
         case 'F8':
             lib.img.screenshot('station-keeping')
             break

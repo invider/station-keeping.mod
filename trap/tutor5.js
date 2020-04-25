@@ -1,6 +1,6 @@
 function onRefuel() {
     if (this.qty < 3) {
-        sfx.play('beep', .5)
+        sfx.play('cancel', .5)
         return
     }
     this.lock()
@@ -11,9 +11,9 @@ function onRefuel() {
 }
 
 function onFuelPickup() {
-    if (this.qty() === 0) {
+    if (this.qty() > 0) {
         // play wrong sfx
-        sfx.play('beep', .5)
+        sfx.play('cancel', .5)
         return
     }
     this.lock()
