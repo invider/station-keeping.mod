@@ -5,8 +5,8 @@ function openEnergyLocker() {
     energyLocker.onClose = function() {
         if (this.qty() > 2) {
             this.onClose = false
-            env.status = ''
-            trap('tutorEnd')
+            this.noblink()
+            trap('tutor3')
         }
     }
     lab.bar.show('move energy cells to ES energy storage locker', 0, env.style.statusBlink)
