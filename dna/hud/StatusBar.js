@@ -1,8 +1,10 @@
 class StatusBar {
-    constructor() {
+    constructor(st) {
         this.name = 'bar'
         this.timer = 0
         this.blinker = 0
+        this.dy = -env.style.edge
+        augment(this, st)
     }
 
     keep(time) {
@@ -18,7 +20,7 @@ class StatusBar {
         time = time || 0
         blink = blink || 0
 
-        env.status = msg
+        this.msg = msg
         this.timer = time
         this.blinker = blink
     }
@@ -28,13 +30,13 @@ class StatusBar {
         if (this.timer > 0) {
             this.timer -= dt
             if (this.timer < 0) {
-                env.status = ''
+                this.msg = ''
             }
         }
     }
 
     draw() {
-        if (!env.status) return
+        if (!this.msg) return
         if (this.blinker > 0 && this.blinker % 1 < .5) return
 
         baseBottom()
@@ -43,8 +45,8 @@ class StatusBar {
         fill(env.style.color.day)
 
         let x = env.style.edge
-        let y = ry(1) - env.style.edge
+        let y = ry(1) + this.dy
 
-        text(env.status, x, y)
+        text(this.msg, x, y)
     }
 }

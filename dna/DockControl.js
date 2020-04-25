@@ -169,7 +169,7 @@ class DockControl extends dna.FixedMesh {
         let w = this.w
         let h = this.h
         if (this.blinkTimer > 0) {
-            const period = env.timer%1
+            const period = this.blinkTimer%1
             if (period < .5) {
                 const s = 2*period * env.style.blinkScale
                 w += s

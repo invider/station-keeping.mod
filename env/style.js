@@ -12,6 +12,7 @@ const style = {
     statusBlink: 3,
 
     edge: 15,
+    titlebarDY: 30,
 
     bar: {
         gap: 2,

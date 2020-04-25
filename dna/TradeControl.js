@@ -9,6 +9,7 @@ const df = {
     y: 0,
     w: 8,
     h: 24,
+    blinkTimer: 0,
 }
 
 class TradeControl extends dna.FixedMesh {
@@ -28,6 +29,7 @@ class TradeControl extends dna.FixedMesh {
             this.qty = 1
         }
         sfx.play('selectHi', .7)
+        if (this.onUse) this.onUse()
     }
 
     lock() {
@@ -38,15 +40,37 @@ class TradeControl extends dna.FixedMesh {
         this.locked = false
     }
 
+    blink(time) {
+        this.blinkTimer = time || env.style.blinkTime
+    }
+
+    noblink() {
+        this.blinkTimer = -1
+    }
+
     value() {
         return this.qty
     }
 
+    evo(dt) {
+        this.blinkTimer -= dt
+    }
+
     drawIndicator() {
+        let hideLevels = false
         lineWidth(1)
         stroke(.5, 0, .2)
+        if (this.blinkTimer > 0) {
+            const period = this.blinkTimer%1
+            if (period > .5) {
+                hideLevels = true
+            } else {
+                stroke(.01, .5, .5)
+            }
+        }
         rect(this.x-this.w/2, this.y-this.h/2, this.w, this.h)
 
+        if (hideLevels) return
         const g = 1
         const qty = this.qty
         const w = this.w - 2*g

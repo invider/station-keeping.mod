@@ -6,5 +6,8 @@ function tutorEnd() {
     lab.stc.resupply = lab.stc.resupplyBak
     env.tune.chipBurnRate = env.tune.chipBurnRateBak
 
-    lab.bar.show('station controls unlocked. Keep the station alive!', 10, env.style.statusBlink)
+    lab.titlebar.show('Station controls unlocked.',
+        10, env.style.statusBlink)
+    lab.bar.show('Keep the station alive!',
+        10, env.style.statusBlink)
 }

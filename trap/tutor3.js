@@ -6,6 +6,8 @@ function onChipSwap() {
     }
     this.lock()
     this.noblink()
+    this.onClose = false
+
     trap('tutor4')
 }
 
@@ -17,11 +19,13 @@ function onChipPickup() {
     }
     this.lock()
     this.noblink()
+    this.onClose = false
 
     const lc = lab.locateTag('LC')
     lc.unlock()
     lc.blink(999)
     lc.onClose = onChipSwap
+    lab.bar.show('replace a broken chip in LC life support control')
 }
 
 function unlockB2() {
