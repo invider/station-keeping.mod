@@ -218,7 +218,7 @@ class Locker extends dna.FixedMesh {
         fill('#151516')
 
         if (this.blinkTimer > 0) {
-            let t = this.blinkTimer%1
+            let t = (this.blinkTimer/2)%1
             if (t > .5) {
                 t = (.5-(t-.5))
             } else {

@@ -1,5 +1,5 @@
 const keyboard = [
-    [ 'KeyW', 'KeyA', 'KeyS', 'KeyD', 'KeyE', 'KeyQ', 'Space', 'Escape', 'KeyZ' ],
+    [ 'KeyW', 'KeyA', 'KeyS', 'KeyD', 'KeyE', 'KeyQ', 'Space', 'Backquote', 'KeyZ' ],
     [ 'ArrowUp', 'ArrowLeft', 'ArrowDown', 'ArrowRight',
         'PageDown', 'PageUp', 'ShiftRight', 'End', 'Insert' ],
     [ 'KeyK', 'KeyH', 'KeyJ', 'KeyL',

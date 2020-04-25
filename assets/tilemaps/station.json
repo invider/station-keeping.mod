@@ -95,7 +95,7 @@
           "y": 136,
           "originX": 16,
           "originY": 16,
-          "values": {"type": "free", "subtype": "fuel", "fill": 5, "port": 0, "tag": "A2", "hint": "Storage Locker"}
+          "values": {"type": "free", "subtype": "fuel", "fill": 7, "port": 0, "tag": "A2", "hint": "Storage Locker"}
         },
         {
           "name": "Locker",
@@ -145,7 +145,7 @@
           "y": 136,
           "originX": 16,
           "originY": 16,
-          "values": {"type": "free", "subtype": "life", "fill": 5, "port": 0, "tag": "A1", "hint": "Storage Locker"}
+          "values": {"type": "free", "subtype": "life", "fill": 7, "port": 0, "tag": "A1", "hint": "Storage Locker"}
         },
         {
           "name": "Locker",

@@ -15,7 +15,7 @@ class StatusBar {
         this.blinker = time
     }
 
-    show(msg, time, blink) {
+    show(msg, time, blink, notify) {
         msg = msg || ''
         time = time || 0
         blink = blink || 0
@@ -23,6 +23,7 @@ class StatusBar {
         this.msg = msg
         this.timer = time
         this.blinker = blink
+        if (notify) sfx.play('message', .5)
     }
 
     evo(dt) {

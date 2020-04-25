@@ -19,6 +19,12 @@ class ItemMenu {
         this.cells = this.keeper.capacity + 1
     }
 
+    select(i) {
+        if (i >= 0 && i <= this.cells) {
+            this.selected = i
+        }
+    }
+
     getSelected() {
         if (this.selected === this.cells - 1) return 'close'
         return this.keeper.items[this.selected]
@@ -44,14 +50,14 @@ class ItemMenu {
 
     up() {
         if (!this.locker) {
-            this.target.swipeFocus()
+            this.target.swipeFocus(this.selected)
             sfx.play('preselect', .6)
         }
     }
 
     down() {
         if (this.locker) {
-            this.target.swipeFocus()
+            this.target.swipeFocus(this.selected)
             sfx.play('preselect', .6)
         }
     }

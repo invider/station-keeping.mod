@@ -64,7 +64,7 @@ class SpaceTrafficControl {
     }
 
     resupply() {
-        for (let i = 0; i < 3; i++) this.resupplyRandomResource()
+        for (let i = 0; i < 2; i++) this.resupplyRandomResource()
         this.recalc()
     }
 

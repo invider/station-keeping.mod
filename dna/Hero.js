@@ -16,6 +16,7 @@ class Hero extends dna.DynamicMesh {
         this.focus = false
         this.solid = false
         this.jetpackHeat = 0
+        this.capacity = env.tune.maxStorage
     }
 
     init() {
@@ -23,9 +24,10 @@ class Hero extends dna.DynamicMesh {
         lib.vfx.teleport(this.x, this.y)
     }
 
-    swipeFocus() {
+    swipeFocus(selected) {
         if (this.focus === this.itemMenu) this.focus = this.lockerMenu
         else this.focus = this.itemMenu
+        this.focus.select(selected)
     }
 
     use() {

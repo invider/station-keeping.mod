@@ -20,15 +20,16 @@ class Ship {
         this.y = TARGETY
         switch(this.dock.port) {
             case 1:
-                this.x = -this.w
+                const leftEdge = lab.cam.worldX(0)
+                this.x = leftEdge - this.w
                 this.startX = this.x
                 this.dx = 10
                 this.targetX = axis - SHIFTX
                 break
 
             case 2:
-                const edge = lab.cam.worldX(rx(1))
-                this.x = edge + this.w
+                const rightEdge = lab.cam.worldX(rx(1))
+                this.x = rightEdge + this.w
                 this.startX = this.x
                 this.dx = -10
                 this.targetX = axis + SHIFTX
