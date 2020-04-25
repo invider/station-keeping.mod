@@ -8,6 +8,7 @@ const df = {
     y: 0,
     w: 8,
     h: 8,
+    blinkTimer: 0,
 }
 
 class DockControl extends dna.FixedMesh {
@@ -152,13 +153,40 @@ class DockControl extends dna.FixedMesh {
         this.state = 'closed'
     }
 
+    blink(time) {
+        this.blinkTimer = time || env.style.blinkTime
+    }
+
+    noblink() {
+        this.blinkTimer = -1
+    }
+
+    evo(dt) {
+        this.blinkTimer -= dt
+    }
+
     draw() {
+        let w = this.w
+        let h = this.h
+        if (this.blinkTimer > 0) {
+            const period = env.timer%1
+            if (period < .5) {
+                const s = 2*period * env.style.blinkScale
+                w += s
+                h += s
+            } else {
+                const s = 1-(2*(period-.5)) * env.style.blinkScale
+                w += s
+                h += s
+            }
+        }
+
         if (this.state === 'docking') {
             const img = (env.timer%1 < .5)? res.prop.switchOn : res.prop.switchOff
-            image(img, this.x - this.w/2, this.y - this.h/2, this.w, this.h)
+            image(img, this.x - w/2, this.y - h/2, w, h)
         } else {
             const img = this.on? res.prop.switchOn : res.prop.switchOff
-            image(img, this.x - this.w/2, this.y - this.h/2, this.w, this.h)
+            image(img, this.x - w/2, this.y - h/2, w, h)
         }
     }
 }

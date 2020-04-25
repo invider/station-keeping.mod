@@ -8,6 +8,8 @@ const style = {
     tagFont: '8px coolville',
 
     blinkTime: 5,
+    blinkScale: 5,
+    statusBlink: 3,
 
     edge: 15,
 

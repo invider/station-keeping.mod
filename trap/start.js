@@ -4,5 +4,4 @@ function start() {
     env.state = 'play'
 
     lib.gen.station()
-
 }

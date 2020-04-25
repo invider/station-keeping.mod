@@ -183,7 +183,7 @@ class Locker extends dna.FixedMesh {
         rect(x-bg, y-bg, w+2*bg, bh+2*bg)
 
         if (this.blinkTimer > 0) {
-            const t = env.timer%1
+            const t = this.blinkTimer%1
             if (t < .25 || (t > .5 && t < .75)) return
         }
 
@@ -200,8 +200,18 @@ class Locker extends dna.FixedMesh {
     drawTag() {
         alignCenter()
         baseMiddle()
-        fill('#151516')
         font(env.style.tagFont)
+        fill('#151516')
+
+        if (this.blinkTimer > 0) {
+            let t = this.blinkTimer%1
+            if (t > .5) {
+                t = (.5-(t-.5))
+            } else {
+                t = t
+            }
+            fill(hsl(.01, t, t))
+        }
 
         text(this.tag, this.x - 2, this.y - 8)
     }

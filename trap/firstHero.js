@@ -1,5 +1,4 @@
 function firstHero() {
-    lib.tfx.roll(env.story)
-
+    //lib.tfx.roll(env.story)
     trap('tutor1')
 }
