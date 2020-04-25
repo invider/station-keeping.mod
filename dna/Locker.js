@@ -63,15 +63,29 @@ class Locker extends dna.FixedMesh {
         }
     }
 
+    shortCircuit(i) {
+        i = i || 0
+        const item = this.items[i]
+        if (item && item.type === 'chip') {
+            item.type = 'broken'
+            sfx.play('deviceOff', 1)
+            this.blink()
+            this.showHint(`-1 chip`)
+        }
+    }
+
     burn(dt) {
         for (let i = 0; i < this.items.length; i++) {
             const item = this.items[i]
             if (item && item.type === 'chip') {
                 if (rnd() < env.tune.chipBurnRate * dt) {
+                    this.shortCircuit(i)
+                    /*
                     item.type = 'broken'
                     sfx.play('deviceOff', 1)
                     this.blink()
                     this.showHint(`-1 chip`)
+                    */
                 }
             }
         }
