@@ -16,8 +16,11 @@ function onCargoClose() {
     dock2.onTrade = function() {
         this.onTrade = false
         this.onUse = false
-        trap('tutorEnd')
+        trap('tutor5')
     }
+    lab.bar.show(
+        'Send docking request',
+        0, env.style.statusBlink)
 }
 
 function onTradeControlUse() {
@@ -33,6 +36,11 @@ function onTradeControlUse() {
     vp.unlock()
     vp.blink(999)
     vp.onClose = onCargoClose
+
+    lab.titlebar.show('')
+    lab.bar.show(
+        'Place goods for exchange in VP locker',
+        0, env.style.statusBlink)
 }
 
 function onSampleSwap() {
