@@ -186,6 +186,16 @@ class Locker extends dna.FixedMesh {
 
     evo(dt) {
         this.blinkTimer -= dt
+        if (this.type === 'control' && this.blinkTimer < 0) {
+            const chips = this.numberOf('chip')
+            if (chips < env.tune.chipsToRecharge) {
+                this.blinkTimer = 1
+            }
+        } else if (this.type === 'storage'
+                && this.blinkTimer < 0) {
+            if (this.qty() === 0) this.blinkTimer = 1
+        }
+
     }
 
     drawIndicator() {

@@ -11,6 +11,7 @@ const df = {
 class Station {
 
     constructor(st) {
+        this.delta = {}
         this.charger = {}
         this.storage = {}
         this.control = {}
@@ -42,6 +43,8 @@ class Station {
     }
 
     consume(type, volume, dt) {
+        const prevVal = this[type]
+
         this.burn(type, dt)
 
         let chips = this.control[type].numberOf('chip')
@@ -62,6 +65,16 @@ class Station {
                 if (this[type] < .7) this.recharge(type)
             }
         }
+        this.delta[type] = (this[type] - prevVal)/dt
+    }
+    
+    isDepleting(type) {
+        return (this[type] < .4 &&  this.delta[type] < 0)
+    }
+
+    isCritical(type) {
+        const bt = env.tune.buzzThreshold
+        return (this[type] < bt &&  this.delta[type] < 0)
     }
 
     evo(dt) {

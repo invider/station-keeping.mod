@@ -28,8 +28,9 @@ class StatusPanel {
             trap('gameover')
         }
 
-        const bt = env.tune.buzzThreshold
-        if (st.life < bt || st.fuel < bt || st.energy < bt) {
+        if (st.isCritical('life')
+                || st.isCritical('fuel') 
+                || st.isCritical('energy')) {
             this.alarm(dt)
         }
     }
@@ -82,15 +83,15 @@ class StatusPanel {
             x = rx(1)
 
             fill(env.style.color.life)
-            text('life support: ' + round(st.life * 100) + '%', x, y)
+            text('life support: ' + round(st.life * 100), x, y)
 
             y += dy
             fill(env.style.color.energy)
-            text('energy: ' + round(st.energy * 100) + '%', x, y)
+            text('energy: ' + round(st.energy * 100), x, y)
 
             y += dy
             fill(env.style.color.fuel)
-            text('fuel: ' + round(st.fuel * 100) + '%', x, y)
+            text('fuel: ' + round(st.fuel * 100), x, y)
         }
     }
 
