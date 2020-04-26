@@ -19,6 +19,10 @@ class ItemMenu {
         this.cells = this.keeper.capacity + 1
     }
 
+    isFocused() {
+        return this.target.focus === this
+    }
+
     select(i) {
         if (i >= 0 && i <= this.cells) {
             this.selected = i
@@ -117,8 +121,14 @@ class ItemMenu {
         }
     }
 
-    poke() {
-        log('poked by')
+    poke(x, y) {
+        const lx = x - this.x + this.w/2
+        const ly = y - this.y + this.h/2
+        const i = floor(lx/(this.w/this.cells))
+
+        if (!this.isFocused()) this.target.swipeFocus()
+        this.selected = i
+        if (this.getSelected()) this.move()
     }
 
     fixOnTarget() {
