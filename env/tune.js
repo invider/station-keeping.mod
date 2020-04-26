@@ -9,7 +9,7 @@ const tune = {
     jetpackFq: .3,
     slide: 150,
     maxSlide: 150,
-    friction: 20,
+    friction: 25,
 
     // systems
     maxStorage: 7,

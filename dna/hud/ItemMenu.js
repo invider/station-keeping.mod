@@ -142,7 +142,11 @@ class ItemMenu {
 
         if (!this.isFocused()) this.target.swipeFocus()
         this.selected = i
-        if (this.getSelected()) this.move()
+        if (this.getSelected()) {
+            this.move()
+        } else {
+            sfx.play('use', .8)
+        }
     }
 
     fixOnTarget() {

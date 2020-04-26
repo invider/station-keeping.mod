@@ -1,4 +1,10 @@
 function onCargoClose() {
+    if (this.numberOf('life') < 1) {
+        // play wrong sfx
+        sfx.play('cancel', .5)
+        return
+    }
+
     this.lock()
     this.noblink()
     this.onClose = false
@@ -69,7 +75,7 @@ function onSampleSwap() {
 }
 
 function onFuelPickup() {
-    if (this.qty() === 7) {
+    if (this.numberOf('fuel') >= 2) {
         // play wrong sfx
         sfx.play('cancel', .5)
         return
