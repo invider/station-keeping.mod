@@ -1,11 +1,16 @@
 class StatusBar {
     constructor(st) {
+        Z: 21,
         this.name = 'bar'
         this.timer = 0
         this.blinker = 0
-        this.dy = -env.style.edge
+        this.rx = 0
+        this.ry = 0
+        this.dx = 0
+        this.dy = 0
         this.msg = false
         this.hint = false
+        this.color = env.style.color.status
         augment(this, st)
     }
 
@@ -50,10 +55,10 @@ class StatusBar {
         baseBottom()
         alignLeft()
         font(env.style.font)
-        fill(env.style.color.day)
+        fill(this.color)
 
-        let x = env.style.edge
-        let y = ry(1) + this.dy
+        let x = rx(this.rx) + this.dx
+        let y = ry(this.ry) + this.dy
 
         text(msg, x, y)
     }

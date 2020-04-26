@@ -1,6 +1,7 @@
 const BARS = 5
 
 const df = {
+    Z: 22,
     showText: true,
     alarmTimer: 0,
 }

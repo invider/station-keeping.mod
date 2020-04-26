@@ -1,5 +1,5 @@
 const tune = {
-    dayLength: 20,
+    dayLength: 30,
     alarmPeriod: 1,
     buzzThreshold: .2,
 

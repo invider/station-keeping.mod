@@ -1,6 +1,9 @@
 function tutor1() {
     lab.lockAll()
     env.tutorial = true
+    lib.tfx.roll('press Esc to skip tutorial', {
+        y: ry(1) - 100,
+    })
 
     const dock1 = lab.locateTag('D1')
     dock1.unlock()

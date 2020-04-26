@@ -11,6 +11,10 @@ function fmt(v, q) {
 }
 
 class SupplyStatus {
+    constructor() {
+        this.z = 23
+    }
+
     draw() {
         const stc = lab.stc
 

@@ -30,6 +30,7 @@ const style = {
         any: hsl(.7, .05, .9),
         broken: hsl(.65, 0, .1),
 
+        status: hsl(.12, .45, .45),
         panel: hsl(.6, .15, .55),
         boundary: hsl(.1, .2, .1),
         selection: hsl(.1, .6, .6),
