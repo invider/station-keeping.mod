@@ -4,6 +4,8 @@ class StatusBar {
         this.timer = 0
         this.blinker = 0
         this.dy = -env.style.edge
+        this.msg = false
+        this.hint = false
         augment(this, st)
     }
 
@@ -26,6 +28,10 @@ class StatusBar {
         if (notify) sfx.play('message', .5)
     }
 
+    showHint(msg) {
+        this.hint = msg
+    }
+
     evo(dt) {
         this.blinker -= dt
         if (this.timer > 0) {
@@ -37,7 +43,8 @@ class StatusBar {
     }
 
     draw() {
-        if (!this.msg) return
+        const msg = this.msg || this.hint
+        if (!msg) return
         if (this.blinker > 0 && this.blinker % 1 < .5) return
 
         baseBottom()
@@ -48,6 +55,6 @@ class StatusBar {
         let x = env.style.edge
         let y = ry(1) + this.dy
 
-        text(this.msg, x, y)
+        text(msg, x, y)
     }
 }

@@ -117,6 +117,10 @@ class ItemMenu {
         }
     }
 
+    poke() {
+        log('poked by')
+    }
+
     fixOnTarget() {
         this.x = this.target.x + this.dx
         this.y = this.target.y + this.dy
@@ -132,6 +136,8 @@ class ItemMenu {
 
         const w = (this.cells*this.tw) + (this.cells - 1)*this.gap
         const h = this.th
+        this.w = w
+        this.h = h
 
         let y = -h/2
         let x = -w/2

@@ -1,4 +1,10 @@
 function click(e) {
-    //const node = lab.pick(e.clientX, e.clientY)
-    //log.dump(node)
+    const ls = []
+    const node = lab.cam.pick(e.clientX, e.clientY, ls,
+        function(e) {
+            return e.touchable
+        })
+    console.dir(node)
+    console.dir(ls)
+    lab.poke(e.clientX, e.clientY)
 }
