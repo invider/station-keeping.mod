@@ -42,7 +42,7 @@ function unlockB2() {
 function burnChipNotification() {
     lab.titlebar.show('a chip burned in life support control',
         0, env.style.statusBlink, true)
-    lab.bar.show('')
+    lab.bar.show('   ')
     setTimeout(unlockB2, 3000)
 }
 
@@ -55,6 +55,6 @@ function burnChip() {
 function tutor3() {
     lab.lockAll()
     lab.titlebar.show('')
-    lab.bar.show('')
+    lab.bar.show('   ')
     setTimeout(burnChip, 2000)
 }

@@ -78,9 +78,16 @@ class ItemMenu {
 
         } else {
             // got something to move
-            if (this.receiver.push(pod)) {
+            const res = this.receiver.push(pod)
+
+            if (res === 'moved') {
                 this.keeper.items[this.selected] = false
                 sfx.play('use', .8)
+
+            } else if (isObj(res)) {
+                this.keeper.items[this.selected] = res
+                sfx.play('use', .8)
+
             } else {
                 sfx.play('beep', .6)
             }
@@ -89,17 +96,24 @@ class ItemMenu {
 
     push(pod) {
         if (this.keeper.guard && !this.keeper.guard(pod.type)) {
-            return false
+            return 'skiped'
         }
         // find an empty slot
         for (let i = 0; i < this.cells-1; i++) {
             const exist = this.keeper.items[i]
             if (!exist) {
                 this.keeper.items[i] = pod
-                return true
+                return 'moved'
             }
         }
-        return false
+        // swap selected
+        let i = this.selected
+        if (i < 0 || i >= this.cells - 1) {
+            i = 0
+        }
+        const extracted = this.keeper.items[i]
+        this.keeper.items[i] = pod
+        return extracted
     }
 
     activate(action) {
