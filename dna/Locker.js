@@ -243,7 +243,7 @@ class Locker extends dna.FixedMesh {
     draw() {
         const img = this.inUse? res.prop.lockerOpen : this.img
         image(img, this.x - this.w/2, this.y - this.h/2, this.w, this.h)
-        this.drawTag()
+        if (!this.inUse) this.drawTag()
         this.drawIndicator()
     }
 }
