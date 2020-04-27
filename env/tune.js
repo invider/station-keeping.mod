@@ -20,7 +20,7 @@ const tune = {
         energy: .003,
     },
     chipsToRecharge: 4,
-    chipBurnRate: .001,
+    chipBurnRate: .005,
 
     stayDocked: 5,
 
