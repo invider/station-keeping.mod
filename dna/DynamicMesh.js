@@ -63,7 +63,6 @@ class DynamicMesh extends dna.FixedMesh {
         let collision = false
         for (let i = 0; i < ls.length; i++) {
             const target = ls[i]
-            target.name = this.name
 
             if (target && target !== this && !target.dead) {
                 
