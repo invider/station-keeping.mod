@@ -10,7 +10,7 @@ const tune = {
     slide: 150,
     maxSlide: 150,
     friction: 25,
-    airFriction: 10,
+    airFriction: 5,
 
     // systems
     maxStorage: 7,

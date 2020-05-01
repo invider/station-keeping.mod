@@ -73,6 +73,13 @@ class DynamicMesh extends dna.FixedMesh {
                     }
 
                 } else if (target.solid) {
+                    if (target.testRect(hfuture)) {
+                        this.mv.x = 0
+                    }
+                    if (target.testRect(vfuture)) {
+                        this.mv.y = 0
+                    }
+                    /*
                     if (target.testPoints) {
                         if (target.testPoints(hpoints)) {
                             this.mv.x = 0
@@ -85,13 +92,8 @@ class DynamicMesh extends dna.FixedMesh {
                         }
 
                     } else {
-                        if (target.testRect(hfuture)) {
-                            this.mv.x = 0
-                        }
-                        if (target.testRect(vfuture)) {
-                            this.mv.y = 0
-                        }
                     }
+                    */
                 }
             }
         }
@@ -116,7 +118,7 @@ class DynamicMesh extends dna.FixedMesh {
     }
 
     draw() {
-        lineWidth(2)
+        lineWidth(1)
         stroke(.2, .5, .5)
         rect(this.x - this.w/2, this.y - this.h/2, this.w, this.h)
 
