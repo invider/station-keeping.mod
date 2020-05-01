@@ -60,6 +60,7 @@ class DynamicMesh extends dna.FixedMesh {
             return res
         }
 
+        this.touchdown = false
         let collision = false
         for (let i = 0; i < ls.length; i++) {
             const target = ls[i]
@@ -77,6 +78,9 @@ class DynamicMesh extends dna.FixedMesh {
                             this.mv.x = 0
                         }
                         if (target.testPoints(vpoints)) {
+                            if (this.mv.y > 0) {
+                                this.touchdown = true
+                            }
                             this.mv.y = 0
                         }
 
@@ -95,8 +99,10 @@ class DynamicMesh extends dna.FixedMesh {
 
     evo(dt) {
         // horizontal friction
-        if (this.mv.y < 1) {
+        if (this.touchdown) {
             this.mv.x = this.mv.x * max((1-env.tune.friction*dt), 0)
+        } else {
+            this.mv.x = this.mv.x * max((1-env.tune.airFriction*dt), 0)
         }
 
         // apply gravity
