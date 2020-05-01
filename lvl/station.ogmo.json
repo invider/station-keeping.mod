@@ -356,6 +356,46 @@
           "originX": 8,
           "originY": 16,
           "values": {"type": "free", "subtype": "", "fill": 0, "port": 0, "tag": "B1", "hint": "Storage Locker"}
+        },
+        {
+          "name": "DockingLight",
+          "id": 41,
+          "_eid": "36914339",
+          "x": 80,
+          "y": 32,
+          "originX": 8,
+          "originY": 8,
+          "values": {"port": 1}
+        },
+        {
+          "name": "DockingLight",
+          "id": 42,
+          "_eid": "36914339",
+          "x": 80,
+          "y": 64,
+          "originX": 8,
+          "originY": 8,
+          "values": {"port": 1}
+        },
+        {
+          "name": "DockingLight",
+          "id": 43,
+          "_eid": "36914339",
+          "x": 328,
+          "y": 32,
+          "originX": 8,
+          "originY": 8,
+          "values": {"port": 2}
+        },
+        {
+          "name": "DockingLight",
+          "id": 44,
+          "_eid": "36914339",
+          "x": 328,
+          "y": 64,
+          "originX": 8,
+          "originY": 8,
+          "values": {"port": 2}
         }
       ]
     }

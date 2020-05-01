@@ -30,6 +30,8 @@ class DockControl extends dna.FixedMesh {
             } else if (e instanceof dna.TradeControl && e.port === dock.port) {
                 dock.tradeControl = e
                 e.dock = dock
+            } else if (e instanceof dna.DockingLight && e.port === dock.port) {
+                e.dock = dock
             }
         })
         lab.station.port[this.port] = this

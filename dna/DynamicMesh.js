@@ -77,23 +77,11 @@ class DynamicMesh extends dna.FixedMesh {
                         this.mv.x = 0
                     }
                     if (target.testRect(vfuture)) {
+                        if (this.mv.y > 0) {
+                            this.touchdown = true
+                        }
                         this.mv.y = 0
                     }
-                    /*
-                    if (target.testPoints) {
-                        if (target.testPoints(hpoints)) {
-                            this.mv.x = 0
-                        }
-                        if (target.testPoints(vpoints)) {
-                            if (this.mv.y > 0) {
-                                this.touchdown = true
-                            }
-                            this.mv.y = 0
-                        }
-
-                    } else {
-                    }
-                    */
                 }
             }
         }
