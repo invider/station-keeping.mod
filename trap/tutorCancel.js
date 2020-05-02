@@ -1,4 +1,6 @@
 function tutorCancel() {
-    lib.report.tutorialStep('X')
-    if (env.tutorial) trap('tutorEnd')
+    if (env.tutorial) {
+        trap('tutorEnd')
+        lib.report.tutorialStep('X')
+    }
 }
