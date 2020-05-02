@@ -1,4 +1,5 @@
 function openEnergyLocker() {
+    lib.report.tutorialStep(2)
     const energyLocker = lab.locateTag('ES')
     energyLocker.unlock()
     energyLocker.blink(999)

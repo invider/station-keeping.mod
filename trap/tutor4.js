@@ -96,6 +96,7 @@ function onFuelPickup() {
 }
 
 function tutor4() {
+    lib.report.tutorialStep(4)
     lab.lockAll()
 
     const a2 = lab.locateTag('A2')

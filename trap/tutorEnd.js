@@ -1,4 +1,5 @@
 function tutorEnd() {
+    lib.report.tutorialStep('E')
     lab.cam._ls.forEach(e => {
         if (e.onUse) e.onUse = false
         if (e.onClose) e.onClose = false

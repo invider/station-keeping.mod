@@ -53,6 +53,7 @@ function burnChip() {
 }
 
 function tutor3() {
+    lib.report.tutorialStep(3)
     lab.lockAll()
     lab.titlebar.show('')
     lab.bar.show('   ')

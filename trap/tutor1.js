@@ -1,4 +1,6 @@
 function tutor1() {
+    lib.report.tutorialStep(1)
+
     lab.lockAll()
     env.tutorial = true
     lib.tfx.roll('press Esc to skip tutorial', {

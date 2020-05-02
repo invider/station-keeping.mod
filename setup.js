@@ -3,6 +3,7 @@ function setup() {
     lib.gen.sfx()
 
     lib.gen.camera()
+    trap('session')
     trap('start')
 
     _.disable()

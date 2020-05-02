@@ -17,5 +17,12 @@ function gameover() {
 
     sfx.play('powerDown', 1)
 
+    lib.report.gameover([
+        env.score.dockingOps,
+        env.score.loaded,
+        env.score.shipped,
+        env.score.waste,
+    ])
+
     setTimeout(() => lib.tfx.roll(env.credits), 5000)
 }

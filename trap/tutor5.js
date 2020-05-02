@@ -7,6 +7,7 @@ function onRefuel() {
     this.noblink()
     this.onClose = false
 
+    lib.report.tutorialStep('V')
     trap('tutorEnd')
 }
 
@@ -27,6 +28,7 @@ function onFuelPickup() {
 }
 
 function tutor5() {
+    lib.report.tutorialStep(5)
     lab.lockAll()
 
     const vp = lab.locateTag('VP')
