@@ -1,4 +1,5 @@
 function setup() {
+    env.reportingId = 'station-keeping'
     lab.background = false
     lib.gen.sfx()
 

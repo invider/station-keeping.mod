@@ -18,6 +18,7 @@ function gameover() {
     sfx.play('powerDown', 1)
 
     lib.report.gameover([
+        floor(env.day),
         env.score.dockingOps,
         env.score.loaded,
         env.score.shipped,
