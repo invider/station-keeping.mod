@@ -20,7 +20,9 @@ class SpaceTrafficControl {
             'fuel': this.gen.rndi(env.tune.maxSupply),
             'energy': this.gen.rndi(env.tune.maxSupply),
         }
-        this.price = {}
+        this.price = {
+            'broken': -env.tune.wasteDisposalCost,
+        }
         this.recalc()
     }
 

@@ -28,6 +28,7 @@ const tune = {
     // economy
     minTradeDelay: 5,
     deltaTradeDelay: 5,
+    wasteDisposalCost: .25,
 
     types: [
         'chip',
