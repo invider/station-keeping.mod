@@ -65,9 +65,20 @@ class SpaceTrafficControl {
         const s = this.supply
     }
 
+    increaseConsumption() {
+        env.tune.consume.fuel *= env.tune.consumptionIncrease
+        env.tune.consume.life *= env.tune.consumptionIncrease
+        env.tune.consume.energy *= env.tune.consumptionIncrease
+    }
+
+    // resupply orbital materials
+    // this function is replaced during the tutorial
     resupply() {
-        for (let i = 0; i < 2; i++) this.resupplyRandomResource()
+        for (let i = 0; i < env.tune.resupplyNextOrbit; i++) {
+            this.resupplyRandomResource()
+        }
         this.recalc()
+        this.increaseConsumption()
     }
 
     tradeWithPort(port) {
