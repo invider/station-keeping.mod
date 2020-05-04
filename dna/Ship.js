@@ -23,7 +23,7 @@ class Ship {
                 const leftEdge = lab.cam.worldX(0)
                 this.x = leftEdge - this.w
                 this.startX = this.x
-                this.dx = 10
+                this.dx = env.tune.dockingSpeed
                 this.targetX = axis - SHIFTX
                 break
 
@@ -31,7 +31,7 @@ class Ship {
                 const rightEdge = lab.cam.worldX(rx(1))
                 this.x = rightEdge + this.w
                 this.startX = this.x
-                this.dx = -10
+                this.dx = -env.tune.dockingSpeed
                 this.targetX = axis + SHIFTX
                 break
         }

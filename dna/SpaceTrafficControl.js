@@ -15,10 +15,10 @@ class SpaceTrafficControl {
         this.gen.setSeed(24)
 
         this.supply = {
-            'chip': this.gen.rndi(env.tune.maxSuppy),
-            'life': this.gen.rndi(env.tune.maxSupply),
-            'fuel': this.gen.rndi(env.tune.maxSupply),
-            'energy': this.gen.rndi(env.tune.maxSupply),
+            'chip':   0,
+            'life':   3,
+            'fuel':   11,
+            'energy': 13,
         }
         this.price = {
             'broken': -env.tune.wasteDisposalCost,

@@ -12,6 +12,7 @@ function tutorEnd() {
     // restore supply and burn rate
     lab.stc.resupply = lab.stc.resupplyBak
     env.tune.chipBurnRate = env.tune.chipBurnRateBak
+    env.tune.dockingSpeed = env.tune.realDockingSpeed
 
     lab.titlebar.show('Station controls unlocked',
         10, env.style.statusBlink)

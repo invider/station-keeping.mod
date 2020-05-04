@@ -20,11 +20,13 @@ const tune = {
         fuel:   .007,
         energy: .003,
     },
-    consumptionIncrease: 1.025, // increase factor for one orbit
+    consumptionIncrease: 1.01, // increase factor for one orbit
     chipsToRecharge: 4,
     chipBurnRate: .005,
 
     stayDocked: 5,
+    dockingSpeed: 50, // initial demo docking speed
+    realDockingSpeed: 10,
 
     // economy
     resupplyNextOrbit: 2,
