@@ -34,6 +34,17 @@ const style = {
         panel: hsl(.6, .15, .55),
         boundary: hsl(.1, .2, .1),
         selection: hsl(.1, .6, .6),
+
+        dude: [
+            '#ff0000',
+            '#00ff00',
+            '#0000ff',
+            '#ffff00',
+            '#ff00ff',
+            '#00ffff',
+            '#0090ff',
+            '#8000ff',
+        ]
     },
 
     locker: {

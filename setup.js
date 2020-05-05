@@ -1,7 +1,9 @@
 function setup() {
     env.reportingId = 'station-keeping'
     lab.background = false
+
     lib.gen.sfx()
+    lib.mapper.remapSprites()
 
     lib.gen.camera()
     trap('session')
