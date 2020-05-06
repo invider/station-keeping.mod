@@ -5,18 +5,21 @@ const maxSlide = 100
 
 const R = 8
 
-let number = 1
+let id = 0
 class Hero extends dna.DynamicMesh {
 
     constructor(st) {
         super(st)
-        this.number = number++
+        this.id = id++
         this.move = []
         this.items = []
         this.focus = false
         this.solid = false
         this.jetpackHeat = 0
+        this.lastTouchdown = 0
         this.capacity = env.tune.maxStorage
+        this.frames = augment({}, dna.pod.frames)
+        this.frames.setFrames(res.plumber.suit[this.id])
     }
 
     init() {
@@ -83,18 +86,24 @@ class Hero extends dna.DynamicMesh {
                 this.mv.y = -env.tune.jump * this.h
                 this.jetpackHeat = env.tune.jetpackFq
                 lib.vfx.poof(this.x, this.y+5)
+                this.frames.setCycle('jump')
                 sfx.play('burn4', .1)
             }
         }
         if (this.move[2]) {
             this.mv.x = min(this.mv.x - env.tune.slide * dt, -env.tune.maxSlide)
             this.lastDir = 1
-        }
-        if (this.move[4]) {
+            if (this.touchdown) this.frames.setCycle('run')
+        } else if (this.move[4]) {
             this.mv.x = max(this.mv.x + env.tune.slide * dt, env.tune.maxSlide)
             this.lastDir = 0
+            if (this.touchdown) this.frames.setCycle('run')
+        } else {
+            this.frames.setCycle('idle')
         }
+
         super.evo(dt)
+        this.frames.evo(dt)
     }
 
     draw() {
@@ -102,8 +111,9 @@ class Hero extends dna.DynamicMesh {
         blocky()
         translate(this.x, this.y)
 
-        let img = res.dude.dude[this.player]
-        if (!img) img = res.dude.dude[0]
+        //let img = res.dude.dude[this.player]
+        //if (!img) img = res.dude.dude[0]
+        const img = this.frames.getSprite()
 
         if (this.lastDir) {
             scale(-1, 1)
@@ -116,13 +126,20 @@ class Hero extends dna.DynamicMesh {
         if (this.debug) {
             super.draw()
 
-            if (this.touched) {
+            //if (this.touched) {
                 fill('#ffff00')
                 font('12px coolville')
                 baseBottom()
                 alignCenter()
-                text('#' + this.touched.name, this.x, this.y - this.h/2)
-            }
+                text('' + this.touchdown, this.x, this.y - this.h/2)
+            //}
         }
+    }
+
+    onTouchdown() {
+        if (env.timer - this.lastTouchdown < .5) return
+        sfx.play('touchdown', .8)
+        this.frames.setCycle('idle')
+        this.lastTouchdown = env.timer
     }
 }

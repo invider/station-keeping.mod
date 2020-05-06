@@ -10,6 +10,7 @@ class DynamicMesh extends dna.FixedMesh {
         super(st)
 
         this.mv = lib.v2.zero()
+        this.premv = lib.v2.zero()
         //if (this.fixed) this.evo = false
 
         this.w2 = this.w/2
@@ -17,6 +18,9 @@ class DynamicMesh extends dna.FixedMesh {
     }
 
     collide(dt) {
+        // TODO handle "many tiny movement after collision" problem
+        //      how to move exactly to the obstacle?
+        
         // calculate future dimentions 
         const hfuture = lib.v2.add(this, lib.v2.scale(this.mv, dt))
         const vfuture = {
@@ -27,30 +31,6 @@ class DynamicMesh extends dna.FixedMesh {
         hfuture.x -= this.w2
         hfuture.w = vfuture.w = this.w
         hfuture.h = vfuture.h = this.h
-
-        const hpoints = [
-            hfuture.x, hfuture.y,
-            hfuture.x + hfuture.w, hfuture.y,
-            hfuture.x, hfuture.y + hfuture.h,
-            hfuture.x + hfuture.w, hfuture.y + hfuture.h,
-
-            hfuture.x, hfuture.y + this.h2,
-            hfuture.x + hfuture.w, hfuture.y + this.h2,
-            hfuture.x + this.w2, hfuture.y,
-            hfuture.x + this.w2, hfuture.y + hfuture.h,
-        ]
-
-        const vpoints = [
-            vfuture.x, vfuture.y,
-            vfuture.x + vfuture.w, vfuture.y,
-            vfuture.x, vfuture.y + vfuture.h,
-            vfuture.x + vfuture.w, vfuture.y + vfuture.h,
-
-            vfuture.x, vfuture.y + this.h2,
-            vfuture.x + vfuture.w, vfuture.y + this.h2,
-            vfuture.x + this.w2, vfuture.y,
-            vfuture.x + this.w2, vfuture.y + vfuture.h,
-        ]
 
         // determine potential set
         const ls = this.__._ls
@@ -79,6 +59,9 @@ class DynamicMesh extends dna.FixedMesh {
                     if (target.testRect(vfuture)) {
                         if (this.mv.y > 0) {
                             this.touchdown = true
+                            if (this.premv.y !== 0 && this.onTouchdown) {
+                                this.onTouchdown()
+                            }
                         }
                         this.mv.y = 0
                     }
@@ -88,6 +71,9 @@ class DynamicMesh extends dna.FixedMesh {
     }
 
     evo(dt) {
+        this.premv.x = this.mv.x
+        this.premv.y = this.mv.y
+
         // horizontal friction
         if (this.touchdown) {
             this.mv.x = this.mv.x * max((1-env.tune.friction*dt), 0)
@@ -97,7 +83,6 @@ class DynamicMesh extends dna.FixedMesh {
 
         // apply gravity
         this.mv.y += env.tune.gravity * dt
-
 
         // move
         this.collide(dt) // cancel movement if needed
