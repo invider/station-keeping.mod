@@ -142,4 +142,10 @@ class Hero extends dna.DynamicMesh {
         this.frames.setCycle('idle')
         this.lastTouchdown = env.timer
     }
+
+    clearControls() {
+        for (let i = 0; i < 5; i++) {
+            this.move[i] = false
+        }
+    }
 }

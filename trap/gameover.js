@@ -1,6 +1,9 @@
 function gameover() {
     env.state = 'gameover'
     lab.control.player.releaseAll()
+    lab.cam._ls.filter(e => e instanceof dna.Hero).forEach(hero => {
+        hero.clearControls()
+    })
 
     lab.cam._ls.forEach(e => {
         if (e instanceof dna.Locker) {
