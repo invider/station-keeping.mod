@@ -95,7 +95,7 @@
           "y": 136,
           "originX": 16,
           "originY": 16,
-          "values": {"type": "free", "subtype": "fuel", "fill": 2, "port": 0, "tag": "A2", "hint": "Storage Locker"}
+          "values": {"type": "free", "subtype": "fuel", "fill": 1, "port": 0, "tag": "A2", "hint": "Storage Locker"}
         },
         {
           "name": "Locker",
@@ -195,7 +195,7 @@
           "y": 136,
           "originX": 16,
           "originY": 16,
-          "values": {"type": "free", "subtype": "chip", "fill": 2, "port": 0, "tag": "B2", "hint": "Storage Locker"}
+          "values": {"type": "free", "subtype": "chip", "fill": 1, "port": 0, "tag": "B2", "hint": "Storage Locker"}
         },
         {
           "name": "TradeControl",
