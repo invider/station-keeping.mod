@@ -27,6 +27,7 @@ const tune = {
     stayDocked: 5,
     dockingSpeed: 50, // initial demo docking speed
     realDockingSpeed: 10,
+    dockingBuzzPeriod: 1,
 
     // economy
     resupplyNextOrbit: 2,

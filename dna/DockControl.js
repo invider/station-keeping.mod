@@ -72,6 +72,7 @@ class DockControl extends dna.FixedMesh {
     tradeSequence(type, qty) {
         this.lock()
         this.state = 'docking'
+        this.buzzTimer = env.tune.dockingBuzzPeriod/2
 
         setTimeout(() => {
             const t = env.msg.resource[type]
@@ -82,9 +83,12 @@ class DockControl extends dna.FixedMesh {
         const dock = this
         lab.cam.spawn(dna.Ship, {
             dock: this,
+            onContact: function() {
+                dock.state = 'secured'
+            },
             onDocked: function() {
                 dock.trade(type, qty)
-            }
+            },
         })
     }
 
@@ -167,6 +171,14 @@ class DockControl extends dna.FixedMesh {
 
     evo(dt) {
         this.blinkTimer -= dt
+
+        if (this.state === 'docking') {
+            this.buzzTimer -= dt
+            if (this.buzzTimer < 0) {
+                this.buzzTimer = env.tune.dockingBuzzPeriod
+                sfx.play('docking', .8)
+            }
+        }
     }
 
     draw() {
@@ -185,7 +197,7 @@ class DockControl extends dna.FixedMesh {
             }
         }
 
-        if (this.state === 'docking') {
+        if (this.state === 'docking' || this.state === 'secured') {
             const img = (env.timer%1 < .5)? res.prop.switchOn : res.prop.switchOff
             image(img, this.x - w/2, this.y - h/2, w, h)
         } else {

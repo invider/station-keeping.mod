@@ -52,8 +52,10 @@ class Ship {
 
                 if (this.dx < 0 && this.x < this.targetX) {
                     this.contact()
+                    this.onContact()
                 } else if (this.dx > 0 && this.x > this.targetX) {
                     this.contact()
+                    this.onContact()
                 }
                 break
 

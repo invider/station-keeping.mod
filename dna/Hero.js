@@ -16,6 +16,7 @@ class Hero extends dna.DynamicMesh {
         this.focus = false
         this.solid = false
         this.jetpackHeat = 0
+        this.lastHeadHit = 0
         this.lastTouchdown = 0
         this.capacity = env.tune.maxStorage
         this.frames = augment({}, dna.pod.frames)
@@ -136,11 +137,17 @@ class Hero extends dna.DynamicMesh {
         }
     }
 
+    onHeadHit() {
+        if (env.timer - this.lastHeadHit < .2) return
+        this.lastHeadHit = env.timer
+        sfx.play('hit2', .4)
+    }
+
     onTouchdown() {
         if (env.timer - this.lastTouchdown < .5) return
-        sfx.play('touchdown', .8)
-        this.frames.setCycle('idle')
         this.lastTouchdown = env.timer
+        this.frames.setCycle('idle')
+        sfx.play('touchdown', .8)
     }
 
     clearControls() {

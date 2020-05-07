@@ -55,12 +55,19 @@ class DynamicMesh extends dna.FixedMesh {
                 } else if (target.solid) {
                     if (target.testRect(hfuture)) {
                         this.mv.x = 0
+                        if (this.premv.x !== 0 && this.onWallHit) {
+                            this.onWallHit()
+                        }
                     }
                     if (target.testRect(vfuture)) {
                         if (this.mv.y > 0) {
                             this.touchdown = true
                             if (this.premv.y !== 0 && this.onTouchdown) {
                                 this.onTouchdown()
+                            }
+                        } else if (this.mv.y < 0) {
+                            if (this.premv.y !== 0 && this.onHeadHit) {
+                                this.onHeadHit()
                             }
                         }
                         this.mv.y = 0
