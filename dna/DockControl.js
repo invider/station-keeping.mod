@@ -176,7 +176,7 @@ class DockControl extends dna.FixedMesh {
             this.buzzTimer -= dt
             if (this.buzzTimer < 0) {
                 this.buzzTimer = env.tune.dockingBuzzPeriod
-                sfx.play('docking', .8)
+                sfx.play('docking', 1)
             }
         }
     }
