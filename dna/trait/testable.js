@@ -13,7 +13,36 @@ const testable = {
         // test the tiles region
         for (let ty = sy; ty < ey; ty++) {
             for (let tx = sx; tx < ex; tx++) {
-                if (this.map[ty * this.tw + tx] >= 0) return true
+                const type = this.map[ty * this.tw + tx]
+
+                if (type === 37) {
+                    const headDY = ((rect.y - this.y)/this.step) - ty
+                    if (headDY < 0.6) return true
+                    else return false
+                }
+                if (type === 69
+                        || type === 68
+                        || type === 203
+                        || type === 204
+                        || type === 205
+                        || type === 206
+                        || type === 244
+                        || type === 247) {
+                    const footDY = ((rect.y + rect.h - this.y)/this.step) - ty
+                    if (footDY > 0.2) {
+                        return true
+                    }
+                    else return false
+                }
+                if (type >= 0) {
+                    return true
+                }
+                /*
+                    return false
+                } else if (type) {
+                    return true
+                }
+                */
             }
         }
         return false
