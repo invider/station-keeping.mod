@@ -12,7 +12,7 @@ function onChipSwap() {
 }
 
 function onChipPickup() {
-    if (this.qty() === 7) {
+    if (this.numberOf('chip') > 0) {
         // play wrong sfx
         sfx.play('cancel', .5)
         return

@@ -75,7 +75,7 @@ function onSampleSwap() {
 }
 
 function onFuelPickup() {
-    if (this.numberOf('fuel') >= 2) {
+    if (this.numberOf('fuel') > 0) {
         // play wrong sfx
         sfx.play('cancel', .5)
         return
